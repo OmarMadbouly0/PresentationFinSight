@@ -2,9 +2,9 @@
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
   Sparkles, BarChart3, Brain, Bot, FlaskConical, BellRing, Layers,
-  TrendingUp, AlertTriangle, Database, Code2, Cpu, Rocket, CheckCircle2,
+  TrendingUp, AlertTriangle, Database, Code2, Rocket, CheckCircle2,
   Play, MessageSquareText, ArrowRight, ArrowDown, Wand2, Briefcase, Calculator,
-  Users, Image as ImageIcon, MousePointerClick, ShieldCheck, Activity, Ticket, Globe, LayoutDashboard,
+  Users, MousePointerClick, ShieldCheck, Activity, Ticket, Globe, LayoutDashboard,
   Heart, Share2, DollarSign
 } from "lucide-react";
 import { type ReactNode, useState, useEffect } from "react";
