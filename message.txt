@@ -1,0 +1,53 @@
+## Admin Dashboard (Presentation Structure)
+
+
+
+### **Slide Title: Admin Dashboard – Centralized Platform Operations**
+
+
+
+### **Presentation Script**
+
+
+
+> The Admin Dashboard serves as the operational control center of FinSight. Unlike the dashboards used by business owners or accountants, this dashboard is designed exclusively for platform administrators who manage the entire SaaS ecosystem.
+
+
+* **Platform Visibility**
+
+
+
+  * Provides a real-time overview of all registered companies and active users.
+
+  * Enables administrators to monitor platform growth and customer adoption.
+
+* **Business Performance Monitoring**
+  * Displays the total financial volume processed across all tenants, including aggregate revenue and expenses.
+  * Helps measure platform usage without exposing confidential company data.
+* **User & Role Management**
+  * Tracks the distribution of user roles such as Admins, Owners, and Accountants.
+  * Ensures organizations are using the platform as intended and simplifies administrative oversight.
+* **Growth & Onboarding Insights**
+  * Shows recently registered companies and users.
+  * Allows administrators to quickly identify onboarding trends and ensure new customers are successfully joining the platform.
+
+* **Operational Health**
+  * Monitors background AI processes such as forecasting jobs and AI workflow execution.
+  * Ensures the platform remains reliable and performs efficiently as usage grows.
+
+---
+# Customer Support Tickets
+
+> To deliver a reliable SaaS experience, FinSight includes an integrated Customer Support system that enables seamless communication between users and platform administrators without leaving the application.
+
+* **Integrated Support Experience**
+
+  * Users can report technical issues, billing questions, or financial inquiries directly inside the platform.
+
+  * Eliminates the need for external emails or third-party support systems.
+
+* **Centralized Support Management**
+
+  * Administrators manage all customer requests from a single dashboard.
+
+  * Tickets can be filtered by status efficiently.

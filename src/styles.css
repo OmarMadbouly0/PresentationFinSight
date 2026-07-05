@@ -1,0 +1,95 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+  --background: 0.16 0.04 260;
+  --foreground: 0.98 0.01 250;
+  --card: 0.22 0.05 262;
+  --card-foreground: 0.98 0.01 250;
+  --primary: 0.72 0.18 235;
+  --primary-foreground: 0.12 0.05 260;
+  --secondary: 0.28 0.06 265;
+  --secondary-foreground: 0.98 0.01 250;
+  --muted: 0.28 0.04 265;
+  --muted-foreground: 0.72 0.04 260;
+  --accent: 0.72 0.18 235;
+  --accent-foreground: 0.12 0.05 260;
+  --border: 0.35 0.05 262;
+  --ring: 0.72 0.18 235;
+  --cyan: 0.82 0.16 210;
+  --violet: 0.7 0.2 295;
+  --emerald: 0.78 0.18 165;
+  --amber: 0.82 0.17 80;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * { border-color: oklch(var(--border) / 0.4); }
+  html, body, #root { height: 100%; }
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-family: var(--font-sans);
+    overflow: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+/* Animated gradient bg */
+.bg-stage {
+  background:
+    radial-gradient(60% 60% at 15% 20%, oklch(0.32 0.16 250 / 0.55), transparent 60%),
+    radial-gradient(50% 50% at 85% 80%, oklch(0.4 0.2 295 / 0.45), transparent 60%),
+    radial-gradient(40% 40% at 80% 15%, oklch(0.45 0.18 200 / 0.45), transparent 60%),
+    linear-gradient(135deg, oklch(0.12 0.05 265), oklch(0.18 0.07 250));
+  background-size: 200% 200%;
+  animation: drift 18s ease-in-out infinite;
+}
+@keyframes drift {
+  0%, 100% { background-position: 0% 0%, 100% 100%, 100% 0%, 0 0; }
+  50% { background-position: 30% 20%, 70% 80%, 60% 20%, 0 0; }
+}
+
+.glass {
+  background: linear-gradient(135deg, oklch(1 0 0 / 0.06), oklch(1 0 0 / 0.02));
+  border: 1px solid oklch(1 0 0 / 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, oklch(0.85 0.16 210), oklch(0.78 0.2 270), oklch(0.85 0.16 210));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+.grid-lines {
+  background-image:
+    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.spin-slow { animation: spin 22s linear infinite; }
+.pulse-ring {
+  animation: pulseRing 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 oklch(0.72 0.18 235 / 0.6); }
+  100% { box-shadow: 0 0 0 30px oklch(0.72 0.18 235 / 0); }
+}
+
+.scroll-y { overflow: auto; }
