@@ -4,7 +4,7 @@ import { useSyncExternalStore } from "react";
 /* ---------- Types ---------- */
 export type SlideId =
   | "s1" | "s2" | "s3" | "s4" | "s5" | "s7" | "s8"
-  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25";
+  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25" | "s26";
 
 export type FieldType = "text" | "textarea" | "list" | "image";
 export type FieldSchema = { key: string; label: string; type: FieldType; hint?: string };
@@ -203,6 +203,23 @@ export const defaultContent: ContentMap = {
     demoLabel: "Live Application",
     demoLink: "https://fin-sight-eight-ruby.vercel.app/",
   },
+  s26: {
+    kicker: "22 · The Team",
+    titlePre: "Meet the",
+    titleAccent: "Minds",
+    intro: "The engineers and visionaries behind FinSight.",
+    teamNames: [
+      "Gamaleldin Salem", "Ahmed Mosad", "Omar Madbouly", "Fatma Haggag", "Nancy Ayman", "Carol Maged"
+    ],
+    teamLinks: [
+      "https://www.linkedin.com/in/gamaleldin-salem-2046b1220/",
+      "https://www.linkedin.com/in/ahmed-neinaa/",
+      "https://www.linkedin.com/in/omar-madbouly",
+      "https://www.linkedin.com/in/fatmahaggag",
+      "https://www.linkedin.com/in/nancy-algazzar/",
+      "https://www.linkedin.com/in/carol-maged-040411280/"
+    ]
+  },
   s18: {
     kicker: "09 · Financial Records",
     titlePre: "Financial",
@@ -317,7 +334,7 @@ export const defaultContent: ContentMap = {
 
 /* ---------- Editor schema (drives the form UI) ---------- */
 export const slideOrder: SlideId[] = [
-  "s1", "s2", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s15", "s16",
+  "s1", "s2", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s15", "s26", "s16",
 ];
 
 export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }> = {
@@ -494,6 +511,16 @@ export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }
       { key: "githubLink", label: "GitHub Link", type: "text" },
       { key: "demoLabel", label: "Demo Label", type: "text" },
       { key: "demoLink", label: "Demo Link", type: "text" },
+    ]
+  },
+  s26: {
+    title: "Team", fields: [
+      { key: "kicker", label: "Kicker", type: "text" },
+      { key: "titlePre", label: "Title", type: "text" },
+      { key: "titleAccent", label: "Title accent", type: "text" },
+      { key: "intro", label: "Intro", type: "textarea" },
+      { key: "teamNames", label: "Team Names", type: "list" },
+      { key: "teamLinks", label: "LinkedIn Links", type: "list" },
     ]
   },
   s18: {

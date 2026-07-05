@@ -4,7 +4,7 @@ import {
   Sparkles, BarChart3, Brain, Bot, FlaskConical, BellRing, Layers,
   TrendingUp, AlertTriangle, Database, Code2, Rocket, CheckCircle2,
   Play, MessageSquareText, ArrowRight, ArrowDown, Wand2, Briefcase, Calculator,
-  Users, MousePointerClick, ShieldCheck, Activity, Ticket, Globe, LayoutDashboard,
+  Users, MousePointerClick, ShieldCheck, Activity, Ticket, Globe,
   Heart, Share2, DollarSign, Mail
 } from "lucide-react";
 import { type ReactNode, useState, useEffect } from "react";
@@ -946,7 +946,7 @@ export function S17_TargetCustomers() {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
-        if (revealStep < 4) {
+        if (revealStep < 3) {
           e.stopPropagation();
           e.stopImmediatePropagation();
           setRevealStep(s => s + 1);
@@ -1432,6 +1432,53 @@ export function S25_Competitors() {
   );
 }
 
+const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+/* ============ SLIDE 26: THE TEAM ============ */
+export function S26_Team() {
+  const c = useSlideContent("s26");
+  const names = arr(c.teamNames);
+  const links = arr(c.teamLinks);
+  const colors = ["cyan", "violet", "emerald", "amber", "rose", "primary"];
+  
+  return (
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+      <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
+      <div className="mt-4 text-3xl text-muted-foreground font-medium text-center max-w-4xl mx-auto">
+        {str(c.intro)}
+      </div>
+      <div className="mt-12 grid grid-cols-3 gap-10 flex-1 content-center px-8">
+        {names.map((name, i) => {
+          const link = links[i] || "#";
+          const col = colors[i % colors.length];
+          return (
+            <motion.a href={link} target="_blank" rel="noopener noreferrer" key={name} variants={pop} whileHover={{ y: -8, scale: 1.05 }}
+              className={`glass rounded-[2rem] p-8 flex flex-col items-center text-center border-b-[8px] shadow-2xl relative overflow-hidden group cursor-pointer`}
+              style={{ borderBottomColor: `var(--${col})` }}>
+              <div className={`absolute inset-0 bg-${col}/5 opacity-0 group-hover:opacity-100 transition-opacity`} />
+              
+              <div className={`size-24 rounded-[2rem] bg-${col}/15 flex items-center justify-center text-${col} mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                <LinkedinIcon className="size-12" />
+              </div>
+              
+              <h3 className="text-3xl font-display font-bold leading-tight tracking-wide mb-3">{name}</h3>
+              <div className={`text-lg text-${col} font-bold uppercase tracking-widest flex items-center gap-2 mt-auto opacity-80 group-hover:opacity-100 transition-opacity`}>
+                Connect <ArrowRight className="size-5 group-hover:translate-x-2 transition-transform" />
+              </div>
+            </motion.a>
+          );
+        })}
+      </div>
+    </SlideShell>
+  );
+}
+
 /* registry */
 export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s1", title: "Title", C: S1_Title },
@@ -1457,6 +1504,7 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s13", title: "Future Work", C: S13_Future },
   { id: "s14", title: "Conclusion", C: S14_Conclusion },
   { id: "s15", title: "Demo", C: S15_Demo },
+  { id: "s26", title: "Team", C: S26_Team },
   { id: "s16", title: "Thank You", C: S16_Thanks },
 ];
 
