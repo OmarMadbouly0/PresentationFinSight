@@ -5,7 +5,7 @@ import {
   TrendingUp, AlertTriangle, Database, Code2, Rocket, CheckCircle2,
   Play, MessageSquareText, ArrowRight, ArrowDown, Wand2, Briefcase, Calculator,
   Users, MousePointerClick, ShieldCheck, Activity, Ticket, Globe, LayoutDashboard,
-  Heart, Share2, DollarSign
+  Heart, Share2, DollarSign, Mail
 } from "lucide-react";
 import { type ReactNode, useState, useEffect } from "react";
 import { useSlideContent, str, arr, parseKV, parseGroup, type SlideId } from "@/lib/slide-content";
@@ -775,7 +775,7 @@ export function S16_Thanks() {
   return (
     <SlideShell>
       <div className="flex h-full items-center justify-center text-center">
-        <div>
+        <div className="flex flex-col items-center">
           <motion.div variants={pop} className="mx-auto mb-12 relative size-48">
             <div className="absolute inset-0 rounded-full glass pulse-ring" />
             <div className="absolute inset-4 rounded-full bg-gradient-to-br from-cyan to-violet flex items-center justify-center shadow-[0_0_50px_rgba(139,92,246,0.5)]">
@@ -785,10 +785,25 @@ export function S16_Thanks() {
           <motion.h1 variants={item} className="font-display text-[12rem] font-bold leading-none mb-4">
             Thank <span className="text-gradient">You</span>
           </motion.h1>
-          <motion.p variants={item} className="mt-8 text-5xl text-muted-foreground font-medium">Questions?</motion.p>
-          <motion.div variants={item}
-            className="mt-16 inline-flex items-center gap-4 rounded-full glass px-10 py-5 text-2xl font-bold border-white/20">
-            <Sparkles className="size-8 text-cyan" /> {str(c.tagline)}
+          <motion.p variants={item} className="mt-8 text-5xl text-muted-foreground font-medium mb-12">Questions?</motion.p>
+          
+          <motion.div variants={item} className="flex flex-col gap-6 items-center w-full mt-8">
+            <div className="inline-flex items-center gap-4 rounded-full glass px-10 py-5 text-2xl font-bold border-white/20">
+              <Sparkles className="size-8 text-cyan" /> {str(c.tagline)}
+            </div>
+            
+            <motion.a href={`mailto:${str(c.contactEmail)}`} whileHover={{ scale: 1.05 }}
+              className="group relative mt-4 inline-flex items-center gap-6 rounded-[2rem] glass px-12 py-6 text-3xl font-display font-bold border border-emerald/30 overflow-hidden cursor-pointer">
+              <div className="absolute inset-0 bg-emerald/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -inset-x-full top-0 h-[2px] w-1/2 bg-gradient-to-r from-transparent via-emerald to-transparent group-hover:animate-[shimmer_2s_infinite]" />
+              <div className="size-16 rounded-full bg-emerald/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Mail className="size-8 text-emerald" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-lg text-emerald uppercase tracking-widest font-bold">Let's Connect</span>
+                <span className="text-foreground tracking-tight">{str(c.contactEmail)}</span>
+              </div>
+            </motion.a>
           </motion.div>
         </div>
       </div>

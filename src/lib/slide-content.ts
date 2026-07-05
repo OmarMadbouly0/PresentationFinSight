@@ -269,6 +269,7 @@ export const defaultContent: ContentMap = {
   },
   s16: {
     tagline: "FinSight · AI-Powered Financial Intelligence",
+    contactEmail: "finsightwebsite@gmail.com",
   },
   s23: {
     kicker: "04 · Business Model",
@@ -572,6 +573,7 @@ export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }
   s16: {
     title: "Thank You", fields: [
       { key: "tagline", label: "Tagline", type: "text" },
+      { key: "contactEmail", label: "Contact Email", type: "text" },
     ]
   },
   s23: {
