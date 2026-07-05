@@ -3,7 +3,7 @@ import { useSyncExternalStore } from "react";
 
 /* ---------- Types ---------- */
 export type SlideId =
-  | "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8"
+  | "s1" | "s2" | "s3" | "s4" | "s5" | "s7" | "s8"
   | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25";
 
 export type FieldType = "text" | "textarea" | "list" | "image";
@@ -101,14 +101,7 @@ export const defaultContent: ContentMap = {
     badgeTitle: "",
     badgeBody: "",
   },
-  s6: {
-    kicker: "04 · System Architecture",
-    titlePre: "How it all",
-    titleAccent: "connects",
-    clientTier: ["Angular 17", "SignalR Client"],
-    apiTier: [".NET 8 Web API", "SignalR Hub", "Hangfire (Nightly Batch)"],
-    dataTier: ["SQL Server", "Nixtla TimeGPT", "LangFlow & Claude (AI)"],
-  },
+
   s7: {
     kicker: "08 · Core Dashboard",
     titlePre: "Intelligent",
@@ -164,14 +157,12 @@ export const defaultContent: ContentMap = {
   },
   s12: {
     kicker: "18 · Technology Stack",
-    titlePre: "Built with a",
-    titleAccent: "modern stack",
+    titlePre: "System Architecture &",
+    titleAccent: "Tech Stack",
     groups: [
-      "Frontend: Angular 17.2, TypeScript 5.4, RxJS, Chart.js",
-      "Backend: .NET 10 (ASP.NET Core Web API), EF Core 10, MediatR",
-      "Database & Real-time: SQL Server, SignalR, Hangfire",
-      "AI & Orchestration: Nixtla TimeGPT, LangFlow, Anthropic Claude",
-      "Auth & External: JWT, ASP.NET Identity, Google Identity",
+      "Client Tier: Angular 17.2, TypeScript 5.4, RxJS, Chart.js, SignalR Client",
+      "API & Integration Tier: .NET 10 Web API, SignalR Hub, Hangfire, JWT Auth, MediatR",
+      "Data & AI Tier: SQL Server, EF Core 10, Nixtla TimeGPT, LangFlow, Anthropic Claude",
     ],
   },
   s13: {
@@ -412,16 +403,7 @@ export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }
       { key: "badgeBody", label: "Bottom badge body", type: "textarea" },
     ]
   },
-  s6: {
-    title: "Architecture", fields: [
-      { key: "kicker", label: "Kicker", type: "text" },
-      { key: "titlePre", label: "Title", type: "text" },
-      { key: "titleAccent", label: "Title accent", type: "text" },
-      { key: "clientTier", label: "Client Tier", type: "list" },
-      { key: "apiTier", label: "API & Orchestration Tier", type: "list" },
-      { key: "dataTier", label: "Intelligence & Data Tier", type: "list" },
-    ]
-  },
+
   s7: {
     title: "Dashboard", fields: [
       { key: "kicker", label: "Kicker", type: "text" },

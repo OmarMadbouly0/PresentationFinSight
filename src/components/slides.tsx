@@ -356,73 +356,6 @@ export function S5_Objectives() {
   );
 }
 
-/* ============ SLIDE 6: ARCHITECTURE ============ */
-export function S6_Architecture() {
-  const c = useSlideContent("s6");
-  return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
-      <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <div className="mt-12 flex-1 flex flex-col justify-center">
-        <div className="grid md:grid-cols-3 gap-8 h-full items-stretch">
-          
-          {/* Client Tier */}
-          <motion.div variants={item} className="glass rounded-3xl p-8 border-t-8 border-cyan flex flex-col relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4 text-cyan mb-8">
-              <LayoutDashboard className="size-10" />
-              <div className="text-2xl uppercase tracking-widest font-bold">Client Tier</div>
-            </div>
-            <div className="flex flex-col gap-5">
-              {arr(c.clientTier).map((tech, i) => (
-                <div key={i} className="glass rounded-2xl p-6 bg-cyan/10 border-l-4 border-cyan text-2xl font-bold">{tech}</div>
-              ))}
-            </div>
-            {/* Animated connection arrow pointing right (visible on md+) */}
-            <div className="absolute top-1/2 -right-4 hidden md:flex text-cyan opacity-50 z-10">
-              <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <ArrowRight className="size-8" />
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* API & Orchestration Tier */}
-          <motion.div variants={pop} transition={{ delay: 0.1 }} className="glass rounded-3xl p-8 border-t-8 border-violet flex flex-col relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-0 bg-violet/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4 text-violet mb-8">
-              <Code2 className="size-10" />
-              <div className="text-2xl uppercase tracking-widest font-bold">API Tier</div>
-            </div>
-            <div className="flex flex-col gap-5">
-              {arr(c.apiTier).map((tech, i) => (
-                <div key={i} className="glass rounded-2xl p-6 bg-violet/10 border-l-4 border-violet text-2xl font-bold">{tech}</div>
-              ))}
-            </div>
-            <div className="absolute top-1/2 -right-4 hidden md:flex text-violet opacity-50 z-10">
-              <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <ArrowRight className="size-8" />
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Data & AI Tier */}
-          <motion.div variants={item} transition={{ delay: 0.2 }} className="glass rounded-3xl p-8 border-t-8 border-emerald flex flex-col relative overflow-hidden group shadow-xl">
-            <div className="absolute inset-0 bg-emerald/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4 text-emerald mb-8">
-              <Database className="size-10" />
-              <div className="text-2xl uppercase tracking-widest font-bold">Data & AI</div>
-            </div>
-            <div className="flex flex-col gap-5">
-              {arr(c.dataTier).map((tech, i) => (
-                <div key={i} className="glass rounded-2xl p-6 bg-emerald/10 border-l-4 border-emerald text-2xl font-bold">{tech}</div>
-              ))}
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
-    </SlideShell>
-  );
-}
 
 /* ============ SLIDE 7: DASHBOARD ============ */
 export function S7_Dashboard() {
@@ -685,25 +618,43 @@ export function S11_Notifications() {
 export function S12_Stack() {
   const c = useSlideContent("s12");
   const groups = arr(c.groups).map(parseGroup);
-  const colors = ["cyan", "primary", "violet", "amber", "emerald"];
+  const colors = ["cyan", "violet", "emerald"];
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <div className="mt-6 flex flex-col gap-4 flex-1 justify-center">
+      <div className="mt-8 flex flex-col items-center justify-center flex-1 w-full max-w-6xl mx-auto relative">
         {groups.map((g, i) => {
           const col = colors[i % colors.length];
           return (
-            <motion.div key={`${g.t}-${i}`} variants={fadeRight}
-              className="glass rounded-2xl p-6 flex flex-col gap-3 border-l-[6px]" style={{ borderLeftColor: `var(--${col})` }}>
-              <div className={`text-xl font-bold uppercase tracking-wider text-${col}`}>{g.t}</div>
-              <div className="flex flex-wrap gap-3">
-                {g.items.map((it, j) => (
-                  <motion.span key={`${it}-${j}`} variants={pop}
-                    className={`rounded-xl bg-${col}/15 text-${col} px-4 py-2 text-xl font-semibold`}>
-                    {it}
-                  </motion.span>
-                ))}
-              </div>
+            <motion.div key={`${g.t}-${i}`} variants={item} className="w-full flex flex-col items-center">
+              <motion.div variants={pop} whileHover={{ scale: 1.02 }}
+                className={`glass w-full rounded-[2rem] p-8 flex flex-col md:flex-row items-center gap-8 border-l-[12px] shadow-2xl relative group`} 
+                style={{ borderLeftColor: `var(--${col})` }}>
+                
+                <div className={`absolute inset-0 bg-${col}/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]`} />
+                
+                <div className={`md:w-1/3 w-full flex flex-col justify-center text-center md:text-left`}>
+                  <div className={`text-3xl font-display font-extrabold uppercase tracking-widest text-${col}`}>
+                    {g.t}
+                  </div>
+                  <div className="text-muted-foreground font-medium mt-2 text-lg uppercase tracking-widest">System Layer</div>
+                </div>
+
+                <div className="md:w-2/3 w-full flex flex-wrap justify-center md:justify-start gap-4">
+                  {g.items.map((it, j) => (
+                    <span key={`${it}-${j}`}
+                      className={`rounded-2xl bg-${col}/15 text-${col} px-5 py-2.5 text-xl font-bold border border-${col}/20 shadow-sm transition-transform hover:-translate-y-1`}>
+                      {it}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+              
+              {i < groups.length - 1 && (
+                <div className="my-4 text-muted-foreground/40 flex flex-col items-center animate-pulse">
+                  <ArrowDown className="size-10" />
+                </div>
+              )}
             </motion.div>
           );
         })}
@@ -1477,7 +1428,6 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s24", title: "Investment Ecosystem", C: S24_Ecosystem },
   { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
-  { id: "s6", title: "Architecture", C: S6_Architecture },
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
   { id: "s18", title: "Financial Records", C: S18_FinancialRecords },
   { id: "s19", title: "CSV Data Import", C: S19_CSVImport },
