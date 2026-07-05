@@ -66,7 +66,7 @@ function SlideShell({ children, kicker }: { children: ReactNode; kicker?: ReactN
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative h-full w-full bg-stage px-8 py-8 md:px-12 md:py-8"
+      className="relative h-full w-full bg-stage px-12 py-12 md:px-20 md:py-16"
     >
       <FloatingShapes />
       <div className="relative h-full flex flex-col">
@@ -79,7 +79,7 @@ function SlideShell({ children, kicker }: { children: ReactNode; kicker?: ReactN
 
 function SectionTitle({ pre, accent, suffix }: { pre: string; accent: string; suffix?: string }) {
   return (
-    <motion.h2 variants={item} className="mt-4 font-display text-5xl md:text-5xl font-semibold leading-[1.05]">
+    <motion.h2 variants={item} className="mt-4 font-display text-5xl md:text-6xl font-semibold leading-[1.05]">
       {pre} {accent && <span className="text-gradient">{accent}</span>} {suffix}
     </motion.h2>
   );
@@ -363,25 +363,25 @@ export function S7_Dashboard() {
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <div className="mt-8 grid md:grid-cols-[1fr_1.8fr] gap-5 flex-1 items-center">
+      <div className="mt-12 grid md:grid-cols-[1fr_1.8fr] gap-16 flex-1 items-center">
         <motion.div variants={item} className="space-y-12 flex flex-col justify-center">
-          <p className="text-base text-muted-foreground leading-snug font-medium font-display">
+          <p className="text-4xl text-muted-foreground leading-snug font-medium font-display">
             {str(c.intro)}
           </p>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-8">
             {arr(c.benefits).map((b, i) => (
-              <motion.div key={i} variants={fadeRight} transition={{ delay: i * 0.1 }} className="flex items-center gap-4 glass rounded-3xl p-6 border-l-4 border-cyan shadow-lg relative overflow-hidden group">
+              <motion.div key={i} variants={fadeRight} transition={{ delay: i * 0.1 }} className="flex items-center gap-6 glass rounded-3xl p-8 border-l-8 border-cyan shadow-lg relative overflow-hidden group">
                 <div className="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="size-8 rounded-2xl bg-cyan/20 flex items-center justify-center shrink-0">
+                <div className="size-16 rounded-2xl bg-cyan/20 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="size-8 text-cyan" />
                 </div>
-                <span className="text-base font-bold leading-tight">{b}</span>
+                <span className="text-3xl font-bold leading-tight">{b}</span>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        <motion.div variants={pop} className="glass rounded-[3rem] p-6 relative overflow-hidden flex items-center justify-center border-t-4 border-violet shadow-2xl h-[700px]">
+        <motion.div variants={pop} className="glass rounded-[3rem] p-6 relative overflow-hidden flex items-center justify-center border-t-8 border-violet shadow-2xl h-[700px]">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-violet/10" />
           <img src="/dashboard.png" alt="Financial Dashboard" className="w-full h-full object-cover object-top rounded-[2rem] shadow-inner relative z-10" />
         </motion.div>
@@ -397,17 +397,17 @@ export function S8_Forecast() {
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <div className="mt-8 grid md:grid-cols-2 gap-5 flex-1 content-center">
-        <motion.div variants={item} className="glass rounded-3xl p-6 border-l-4 border-violet">
-          <div className="text-base uppercase tracking-widest text-muted-foreground font-bold">Predicts</div>
-          <div className="mt-8 grid grid-cols-2 gap-4">
+      <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
+        <motion.div variants={item} className="glass rounded-3xl p-10 border-l-8 border-violet">
+          <div className="text-xl uppercase tracking-widest text-muted-foreground font-bold">Predicts</div>
+          <div className="mt-8 grid grid-cols-2 gap-6">
             {arr(c.targets).map((t, i) => (
               <motion.div key={`${t}-${i}`} variants={pop} className="rounded-2xl bg-gradient-to-br from-cyan/20 to-violet/20 p-6 text-center shadow-lg">
-                <div className="font-display text-base font-bold">{t}</div>
+                <div className="font-display text-3xl font-bold">{t}</div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-8 h-56 relative border-t-2 border-white/10 pt-8">
+          <div className="mt-12 h-56 relative border-t-2 border-white/10 pt-8">
             <svg viewBox="0 0 300 120" className="w-full h-full">
               <motion.path d="M0 90 L 50 75 L 100 80 L 150 55 L 200 60 L 250 35 L 300 20"
                 fill="none" stroke="url(#fg)" strokeWidth="4" strokeLinecap="round"
@@ -422,19 +422,19 @@ export function S8_Forecast() {
                 </linearGradient>
               </defs>
             </svg>
-            <div className="absolute right-4 top-6 text-base font-bold text-cyan">— forecast</div>
+            <div className="absolute right-4 top-10 text-lg font-bold text-cyan">— forecast</div>
           </div>
         </motion.div>
 
-        <motion.div variants={item} className="glass rounded-3xl p-6 border-l-4 border-cyan flex flex-col justify-center">
-          <div className="text-base uppercase tracking-widest text-cyan font-bold">AI Process</div>
+        <motion.div variants={item} className="glass rounded-3xl p-10 border-l-8 border-cyan flex flex-col justify-center">
+          <div className="text-xl uppercase tracking-widest text-cyan font-bold">AI Process</div>
           <div className="mt-8 flex flex-col items-stretch gap-4">
             {steps.map((s, i) => (
               <div key={`${s}-${i}`}>
                 <motion.div variants={fadeRight} whileHover={{ x: 6 }}
-                  className="flex items-center gap-4 rounded-2xl bg-white/10 px-6 py-5 shadow-lg">
-                  <div className="flex size-8 items-center justify-center rounded-xl bg-violet/30 text-base font-mono font-bold shrink-0">{i + 1}</div>
-                  <span className="text-base font-bold leading-snug">{s}</span>
+                  className="flex items-center gap-6 rounded-2xl bg-white/10 px-6 py-5 shadow-lg">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-violet/30 text-2xl font-mono font-bold shrink-0">{i + 1}</div>
+                  <span className="text-2xl font-bold leading-snug">{s}</span>
                 </motion.div>
                 {i < steps.length - 1 && <div className="flex justify-center my-3"><ArrowDown className="size-8 text-violet" /></div>}
               </div>
@@ -564,44 +564,44 @@ export function S11_Notifications() {
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} suffix={str(c.titleSuffix)} />
-      <div className="mt-8 grid md:grid-cols-2 gap-5 flex-1 content-center">
+      <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
         <motion.div variants={item} className="space-y-8 flex flex-col justify-center">
-          <p className="text-base text-muted-foreground leading-relaxed">{str(c.intro)}</p>
+          <p className="text-3xl text-muted-foreground leading-relaxed">{str(c.intro)}</p>
           <div className="space-y-6">
             {arr(c.alerts).map((a, i) => {
               const col = alertColors[i % alertColors.length];
               return (
                 <motion.div key={`${a}-${i}`} variants={fadeRight}
-                  className={`glass rounded-3xl p-6 flex items-center gap-4 relative overflow-hidden border-l-4 border-${col}`}>
+                  className={`glass rounded-3xl p-6 flex items-center gap-6 relative overflow-hidden border-l-8 border-${col}`}>
                   <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0.2, 0.6] }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                    className={`size-8 rounded-full bg-${col}/20 flex items-center justify-center shrink-0`}>
+                    className={`size-16 rounded-full bg-${col}/20 flex items-center justify-center shrink-0`}>
                     <BellRing className={`size-8 text-${col}`} />
                   </motion.div>
                   <div className="flex-1">
-                    <div className="text-base font-bold text-foreground">{a}</div>
-                    <div className="text-base text-muted-foreground mt-1">Auto-triggered when threshold breached</div>
+                    <div className="text-2xl font-bold text-foreground">{a}</div>
+                    <div className="text-lg text-muted-foreground mt-1">Auto-triggered when threshold breached</div>
                   </div>
-                  <span className="text-base text-muted-foreground font-mono font-bold bg-white/5 px-4 py-2 rounded-xl">now</span>
+                  <span className="text-lg text-muted-foreground font-mono font-bold bg-white/5 px-4 py-2 rounded-xl">now</span>
                 </motion.div>
               );
             })}
           </div>
         </motion.div>
 
-        <motion.div variants={item} className="glass rounded-3xl p-6 border-l-4 border-emerald flex flex-col justify-center">
-          <div className="text-base uppercase tracking-widest text-emerald font-bold">Workflow</div>
+        <motion.div variants={item} className="glass rounded-3xl p-8 border-l-8 border-emerald flex flex-col justify-center">
+          <div className="text-xl uppercase tracking-widest text-emerald font-bold">Workflow</div>
           <div className="mt-8 flex flex-col items-stretch gap-4">
             {flow.map((f, i) => (
               <div key={`${f}-${i}`}>
                 <motion.div variants={pop}
-                  className="rounded-2xl bg-gradient-to-r from-cyan/15 to-violet/15 border-2 border-border px-8 py-6 text-center font-display text-base font-bold shadow-lg">
+                  className="rounded-2xl bg-gradient-to-r from-cyan/15 to-violet/15 border-2 border-border px-8 py-6 text-center font-display text-3xl font-bold shadow-lg">
                   {f}
                 </motion.div>
                 {i < flow.length - 1 && (
                   <div className="flex justify-center my-3">
                     <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}>
-                      <ArrowDown className="size-8 text-cyan" />
+                      <ArrowDown className="size-10 text-cyan" />
                     </motion.div>
                   </div>
                 )}
@@ -628,22 +628,22 @@ export function S12_Stack() {
           return (
             <motion.div key={`${g.t}-${i}`} variants={item} className="w-full flex flex-col items-center">
               <motion.div variants={pop} whileHover={{ scale: 1.02 }}
-                className={`glass w-full rounded-[2rem] p-6 flex flex-col md:flex-row items-center gap-5 border-l-[6px] shadow-2xl relative group`} 
+                className={`glass w-full rounded-[2rem] p-8 flex flex-col md:flex-row items-center gap-8 border-l-[12px] shadow-2xl relative group`} 
                 style={{ borderLeftColor: `var(--${col})` }}>
                 
                 <div className={`absolute inset-0 bg-${col}/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-[2rem]`} />
                 
                 <div className={`md:w-1/3 w-full flex flex-col justify-center text-center md:text-left`}>
-                  <div className={`text-base font-display font-extrabold uppercase tracking-widest text-${col}`}>
+                  <div className={`text-3xl font-display font-extrabold uppercase tracking-widest text-${col}`}>
                     {g.t}
                   </div>
-                  <div className="text-muted-foreground font-medium mt-2 text-base uppercase tracking-widest">System Layer</div>
+                  <div className="text-muted-foreground font-medium mt-2 text-lg uppercase tracking-widest">System Layer</div>
                 </div>
 
                 <div className="md:w-2/3 w-full flex flex-wrap justify-center md:justify-start gap-4">
                   {g.items.map((it, j) => (
                     <span key={`${it}-${j}`}
-                      className={`rounded-2xl bg-${col}/15 text-${col} px-5 py-2.5 text-base font-bold border border-${col}/20 shadow-sm transition-transform hover:-translate-y-1`}>
+                      className={`rounded-2xl bg-${col}/15 text-${col} px-5 py-2.5 text-xl font-bold border border-${col}/20 shadow-sm transition-transform hover:-translate-y-1`}>
                       {it}
                     </span>
                   ))}
@@ -652,7 +652,7 @@ export function S12_Stack() {
               
               {i < groups.length - 1 && (
                 <div className="my-4 text-muted-foreground/40 flex flex-col items-center animate-pulse">
-                  <ArrowDown className="size-8" />
+                  <ArrowDown className="size-10" />
                 </div>
               )}
             </motion.div>
@@ -960,11 +960,11 @@ export function S17_TargetCustomers() {
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <motion.p variants={item} className="mt-6 max-w-4xl text-base font-bold text-muted-foreground">
+      <motion.p variants={item} className="mt-6 max-w-4xl text-2xl font-bold text-muted-foreground">
         {str(c.subtitle)}
       </motion.p>
 
-      <div className="mt-8 flex-1 grid grid-cols-3 gap-5 auto-rows-fr">
+      <div className="mt-12 flex-1 grid grid-cols-3 gap-8 auto-rows-fr">
         <CustomerCard
           icon={str(c.c1Icon)}
           title={str(c.c1Title)}
@@ -1015,11 +1015,11 @@ export function TwoColumnFeature({ id }: { id: SlideId }) {
     Icon2 = Users;
   }
 
-  const titleClass = "text-base font-display font-bold mb-6 text-center";
-  const textClass = "text-base leading-relaxed";
-  const iconContainer = "size-8 rounded-3xl mb-8 mx-auto";
-  const iconSvg = "size-8";
-  const gridClass = "grid md:grid-cols-2 gap-5 w-full max-w-6xl mx-auto mt-8";
+  const titleClass = "text-3xl font-display font-bold mb-6 text-center";
+  const textClass = "text-xl leading-relaxed";
+  const iconContainer = "size-28 rounded-3xl mb-8 mx-auto";
+  const iconSvg = "size-14";
+  const gridClass = "grid md:grid-cols-2 gap-16 w-full max-w-6xl mx-auto mt-12";
   const cardClass = "glass rounded-[3rem] p-16 relative overflow-hidden group flex flex-col justify-center min-h-[480px]";
 
   return (
@@ -1027,7 +1027,7 @@ export function TwoColumnFeature({ id }: { id: SlideId }) {
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-8 flex flex-col flex-1">
         {str(c.intro) && (
-          <p className="text-base text-muted-foreground mb-8 max-w-2xl">{str(c.intro)}</p>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{str(c.intro)}</p>
         )}
         <div className={gridClass}>
           <motion.div variants={item} className={cardClass}>
@@ -1153,36 +1153,36 @@ export function S22_SupportTickets() {
 
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
-      <div className="grid md:grid-cols-2 gap-5 items-center h-full pt-8">
+      <div className="grid md:grid-cols-2 gap-16 items-center h-full pt-8">
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-12">
           <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-          <motion.p variants={item} className="text-base text-muted-foreground leading-relaxed">
+          <motion.p variants={item} className="text-2xl text-muted-foreground leading-relaxed">
             {str(c.intro)}
           </motion.p>
           
-          <div className="flex flex-col gap-5">
-            <motion.div variants={item} className="glass p-6 rounded-3xl border-l-4 border-cyan">
+          <div className="flex flex-col gap-8">
+            <motion.div variants={item} className="glass p-8 rounded-3xl border-l-8 border-cyan">
               <div className="flex items-center gap-4 mb-5">
-                <Ticket className="size-8 text-cyan" />
-                <h3 className="text-base font-bold">{str(c.c1Title)}</h3>
+                <Ticket className="size-10 text-cyan" />
+                <h3 className="text-3xl font-bold">{str(c.c1Title)}</h3>
               </div>
               <ul className="space-y-4">
                 {arr(c.c1List).map((li, i) => (
-                  <li key={i} className="flex items-center gap-4 text-base text-foreground/90 font-medium">
+                  <li key={i} className="flex items-center gap-4 text-xl text-foreground/90 font-medium">
                     <CheckCircle2 className="size-6 text-cyan" /> {li}
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            <motion.div variants={item} className="glass p-6 rounded-3xl border-l-4 border-violet">
+            <motion.div variants={item} className="glass p-8 rounded-3xl border-l-8 border-violet">
               <div className="flex items-center gap-4 mb-5">
-                <ShieldCheck className="size-8 text-violet" />
-                <h3 className="text-base font-bold">{str(c.c2Title)}</h3>
+                <ShieldCheck className="size-10 text-violet" />
+                <h3 className="text-3xl font-bold">{str(c.c2Title)}</h3>
               </div>
               <ul className="space-y-4">
                 {arr(c.c2List).map((li, i) => (
-                  <li key={i} className="flex items-center gap-4 text-base text-foreground/90 font-medium">
+                  <li key={i} className="flex items-center gap-4 text-xl text-foreground/90 font-medium">
                     <CheckCircle2 className="size-6 text-violet" /> {li}
                   </li>
                 ))}
@@ -1192,13 +1192,13 @@ export function S22_SupportTickets() {
         </motion.div>
 
         <motion.div variants={container} initial="hidden" animate="show" className="relative h-full flex flex-col justify-center">
-          <div className="w-full glass rounded-[2.5rem] p-6 relative overflow-hidden shadow-2xl">
+          <div className="w-full glass rounded-[2.5rem] p-10 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-b from-cyan/5 to-violet/5" />
             
-            <div className="relative z-10 flex flex-col gap-4">
+            <div className="relative z-10 flex flex-col gap-6">
               <div className="flex items-center justify-between mb-4">
-                <div className="font-bold text-base">Live Tickets</div>
-                <div className="text-base px-6 py-2 rounded-full bg-cyan/20 text-cyan font-bold tracking-wide uppercase">Admin View</div>
+                <div className="font-bold text-3xl">Live Tickets</div>
+                <div className="text-lg px-6 py-2 rounded-full bg-cyan/20 text-cyan font-bold tracking-wide uppercase">Admin View</div>
               </div>
 
               {/* Animated Tickets */}
@@ -1209,10 +1209,10 @@ export function S22_SupportTickets() {
                 className="bg-background/90 p-6 rounded-3xl border border-white/10 shadow-lg"
               >
                 <div className="flex justify-between items-center mb-4">
-                  <div className="text-base font-bold text-foreground">Bank connection error</div>
+                  <div className="text-xl font-bold text-foreground">Bank connection error</div>
                   <span className="text-sm px-4 py-1.5 rounded-full bg-emerald/20 text-emerald font-bold uppercase tracking-wider">Resolved</span>
                 </div>
-                <div className="text-base text-muted-foreground flex items-center gap-3">
+                <div className="text-lg text-muted-foreground flex items-center gap-3">
                   <MessageSquareText className="size-5" /> 4 messages
                 </div>
               </motion.div>
@@ -1228,10 +1228,10 @@ export function S22_SupportTickets() {
                   initial={{ height: 0 }} animate={{ height: "100%" }} transition={{ delay: 1.5, duration: 0.5 }}
                 />
                 <div className="flex justify-between items-center mb-4">
-                  <div className="text-base font-bold text-foreground">Billing discrepancy Q3</div>
+                  <div className="text-xl font-bold text-foreground">Billing discrepancy Q3</div>
                   <span className="text-sm px-4 py-1.5 rounded-full bg-amber/20 text-amber font-bold uppercase tracking-wider">In Progress</span>
                 </div>
-                <div className="text-base text-muted-foreground flex items-center gap-3">
+                <div className="text-lg text-muted-foreground flex items-center gap-3">
                   <MessageSquareText className="size-5" /> 2 messages
                 </div>
               </motion.div>
@@ -1243,10 +1243,10 @@ export function S22_SupportTickets() {
                 className="bg-background/90 p-6 rounded-3xl border-2 border-cyan/40 shadow-[0_0_30px_rgba(34,211,238,0.2)]"
               >
                  <div className="flex justify-between items-center mb-4">
-                  <div className="text-base font-bold text-foreground">Need help with Forecast</div>
+                  <div className="text-xl font-bold text-foreground">Need help with Forecast</div>
                   <span className="text-sm px-4 py-1.5 rounded-full bg-cyan/20 text-cyan font-bold uppercase tracking-wider">New</span>
                 </div>
-                <div className="text-base text-muted-foreground flex items-center gap-3">
+                <div className="text-lg text-muted-foreground flex items-center gap-3">
                   <MessageSquareText className="size-5" /> Just now
                 </div>
               </motion.div>
@@ -1264,14 +1264,14 @@ export function S23_BMC() {
   const c = useSlideContent("s23");
 
   const BmcBlock = ({ title, icon, items, theme, isRow }: { title: string, icon: ReactNode, items: string[], theme: string, isRow?: boolean }) => (
-    <motion.div variants={item} className={`glass rounded-3xl p-6 border-t-4 border-${theme} flex flex-col h-full bg-${theme}/5 shadow-lg`}>
-      <div className={`flex items-center gap-4 text-${theme} font-bold text-base mb-6`}>
+    <motion.div variants={item} className={`glass rounded-3xl p-6 border-t-8 border-${theme} flex flex-col h-full bg-${theme}/5 shadow-lg`}>
+      <div className={`flex items-center gap-4 text-${theme} font-bold text-2xl mb-6`}>
         {icon}
         {title}
       </div>
       <ul className={`flex-1 ${isRow ? 'flex flex-row justify-around items-center w-full' : 'space-y-4'}`}>
         {items.map((it, i) => (
-          <li key={i} className={`flex items-start gap-3 text-base font-bold text-foreground/90 ${isRow ? 'items-center text-center px-4 border-l-2 border-white/10 first:border-0' : ''}`}>
+          <li key={i} className={`flex items-start gap-3 text-xl font-bold text-foreground/90 ${isRow ? 'items-center text-center px-4 border-l-2 border-white/10 first:border-0' : ''}`}>
             {!isRow && <span className={`mt-2.5 size-2.5 rounded-full bg-${theme} shrink-0`} />}
             <span>{it}</span>
           </li>
@@ -1283,23 +1283,23 @@ export function S23_BMC() {
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <div className="mt-8 flex-1 grid grid-cols-5 grid-rows-[minmax(0,1fr)_auto] gap-4">
+      <div className="mt-8 flex-1 grid grid-cols-5 grid-rows-[minmax(0,1fr)_auto] gap-6">
         {/* Top Half */}
-        <div className="col-span-1 grid gap-4">
+        <div className="col-span-1 grid gap-6">
           <BmcBlock title="Key Partners" icon={<Briefcase className="size-8"/>} items={arr(c.partners)} theme="cyan" />
         </div>
-        <div className="col-span-1 grid gap-4 grid-rows-2">
+        <div className="col-span-1 grid gap-6 grid-rows-2">
           <BmcBlock title="Key Activities" icon={<Activity className="size-8"/>} items={arr(c.activities)} theme="amber" />
           <BmcBlock title="Key Resources" icon={<Database className="size-8"/>} items={arr(c.resources)} theme="violet" />
         </div>
-        <div className="col-span-1 grid gap-4">
+        <div className="col-span-1 grid gap-6">
           <BmcBlock title="Value Proposition" icon={<Sparkles className="size-8"/>} items={arr(c.valueProps)} theme="emerald" />
         </div>
-        <div className="col-span-1 grid gap-4 grid-rows-2">
+        <div className="col-span-1 grid gap-6 grid-rows-2">
           <BmcBlock title="Relationships" icon={<Heart className="size-8"/>} items={arr(c.relationships)} theme="rose" />
           <BmcBlock title="Channels" icon={<Share2 className="size-8"/>} items={arr(c.channels)} theme="cyan" />
         </div>
-        <div className="col-span-1 grid gap-4">
+        <div className="col-span-1 grid gap-6">
           <BmcBlock title="Cust. Segments" icon={<Users className="size-8"/>} items={arr(c.segments)} theme="amber" />
         </div>
 
@@ -1388,13 +1388,13 @@ export function S25_Competitors() {
   const c = useSlideContent("s25");
 
   const CompCard = ({ name, desc, drawbacks, theme }: { name: string, desc: string, drawbacks: string[], theme: string }) => (
-    <motion.div variants={item} className={`glass rounded-[2rem] p-6 border-t-4 border-${theme} flex flex-col h-full relative overflow-hidden group`}>
+    <motion.div variants={item} className={`glass rounded-[2rem] p-8 border-t-8 border-${theme} flex flex-col h-full relative overflow-hidden group`}>
       <div className={`absolute inset-0 bg-${theme}/5 opacity-0 group-hover:opacity-100 transition-opacity`} />
-      <div className={`text-base font-display font-bold text-${theme} mb-4`}>{name}</div>
-      <p className="text-base text-muted-foreground font-medium mb-6">{desc}</p>
+      <div className={`text-3xl font-display font-bold text-${theme} mb-4`}>{name}</div>
+      <p className="text-xl text-muted-foreground font-medium mb-6">{desc}</p>
       <div className="mt-auto space-y-4">
         {drawbacks.map((d, i) => (
-          <div key={i} className="flex items-start gap-3 text-base font-bold text-foreground/80">
+          <div key={i} className="flex items-start gap-3 text-lg font-bold text-foreground/80">
             <AlertTriangle className={`size-6 text-${theme} shrink-0 mt-0.5`} />
             <span>{d}</span>
           </div>
@@ -1407,23 +1407,23 @@ export function S25_Competitors() {
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       
-      <div className="mt-8 flex flex-col gap-5 flex-1">
-        <div className="grid grid-cols-4 gap-4">
+      <div className="mt-12 flex flex-col gap-8 flex-1">
+        <div className="grid grid-cols-4 gap-6">
           <CompCard name={str(c.c1Name)} desc={str(c.c1Desc)} drawbacks={arr(c.c1Drawbacks)} theme="cyan" />
           <CompCard name={str(c.c2Name)} desc={str(c.c2Desc)} drawbacks={arr(c.c2Drawbacks)} theme="emerald" />
           <CompCard name={str(c.c3Name)} desc={str(c.c3Desc)} drawbacks={arr(c.c3Drawbacks)} theme="amber" />
           <CompCard name={str(c.c4Name)} desc={str(c.c4Desc)} drawbacks={arr(c.c4Drawbacks)} theme="rose" />
         </div>
 
-        <motion.div variants={pop} className="mt-4 glass rounded-[3rem] p-6 border-[4px] border-primary shadow-[0_0_40px_rgba(139,92,246,0.3)] relative overflow-hidden flex flex-col justify-center items-center text-center">
+        <motion.div variants={pop} className="mt-4 glass rounded-[3rem] p-10 border-[4px] border-primary shadow-[0_0_40px_rgba(139,92,246,0.3)] relative overflow-hidden flex flex-col justify-center items-center text-center">
            <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 via-violet/10 to-emerald/10" />
-           <div className="relative z-10 flex items-center gap-4">
-             <div className="size-8 rounded-3xl bg-primary flex items-center justify-center shrink-0 shadow-lg">
-                <Sparkles className="size-8 text-primary-foreground" />
+           <div className="relative z-10 flex items-center gap-6">
+             <div className="size-20 rounded-3xl bg-primary flex items-center justify-center shrink-0 shadow-lg">
+                <Sparkles className="size-10 text-primary-foreground" />
              </div>
              <div className="text-left">
-               <div className="text-base uppercase tracking-widest text-primary font-bold mb-2">The FinSight Advantage</div>
-               <h3 className="text-base font-display font-bold leading-relaxed text-foreground max-w-5xl">{str(c.finsightAdvantage)}</h3>
+               <div className="text-2xl uppercase tracking-widest text-primary font-bold mb-2">The FinSight Advantage</div>
+               <h3 className="text-3xl font-display font-bold leading-relaxed text-foreground max-w-5xl">{str(c.finsightAdvantage)}</h3>
              </div>
            </div>
         </motion.div>
