@@ -60,16 +60,16 @@ function FloatingShapes() {
   );
 }
 
-function SlideShell({ children, kicker }: { children: ReactNode; kicker?: ReactNode }) {
+function SlideShell({ children, kicker, scaleDown }: { children: ReactNode; kicker?: ReactNode; scaleDown?: boolean }) {
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative h-full w-full bg-stage px-12 py-12 md:px-20 md:py-16"
+      className="relative h-full w-full bg-stage px-12 py-12 md:px-20 md:py-16 overflow-hidden"
     >
       <FloatingShapes />
-      <div className="relative h-full flex flex-col">
+      <div className={`relative h-full flex flex-col ${scaleDown ? 'transform scale-[0.9] origin-top' : ''}`}>
         {kicker}
         {children}
       </div>
@@ -361,7 +361,7 @@ export function S5_Objectives() {
 export function S7_Dashboard() {
   const c = useSlideContent("s7");
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-12 grid md:grid-cols-[1fr_1.8fr] gap-16 flex-1 items-center">
         <motion.div variants={item} className="space-y-12 flex flex-col justify-center">
@@ -395,7 +395,7 @@ export function S8_Forecast() {
   const c = useSlideContent("s8");
   const steps = arr(c.steps);
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
         <motion.div variants={item} className="glass rounded-3xl p-10 border-l-8 border-violet">
@@ -562,7 +562,7 @@ export function S11_Notifications() {
   const alertColors = ["amber", "destructive", "amber", "violet", "cyan"];
   const flow = arr(c.flow);
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} suffix={str(c.titleSuffix)} />
       <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
         <motion.div variants={item} className="space-y-8 flex flex-col justify-center">
@@ -620,7 +620,7 @@ export function S12_Stack() {
   const groups = arr(c.groups).map(parseGroup);
   const colors = ["cyan", "violet", "emerald"];
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-8 flex flex-col items-center justify-center flex-1 w-full max-w-6xl mx-auto relative">
         {groups.map((g, i) => {
@@ -958,7 +958,7 @@ export function S17_TargetCustomers() {
   }, [revealStep]);
 
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <motion.p variants={item} className="mt-6 max-w-4xl text-2xl font-bold text-muted-foreground">
         {str(c.subtitle)}
@@ -1023,7 +1023,7 @@ export function TwoColumnFeature({ id }: { id: SlideId }) {
   const cardClass = "glass rounded-[3rem] p-16 relative overflow-hidden group flex flex-col justify-center min-h-[480px]";
 
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown={id === "s18" || id === "s20"}>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-8 flex flex-col flex-1">
         {str(c.intro) && (
@@ -1152,7 +1152,7 @@ export function S22_SupportTickets() {
   const c = useSlideContent("s22");
 
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <div className="grid md:grid-cols-2 gap-16 items-center h-full pt-8">
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-12">
           <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
@@ -1281,7 +1281,7 @@ export function S23_BMC() {
   );
 
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       <div className="mt-8 flex-1 grid grid-cols-5 grid-rows-[minmax(0,1fr)_auto] gap-6">
         {/* Top Half */}
@@ -1404,7 +1404,7 @@ export function S25_Competitors() {
   );
 
   return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       
       <div className="mt-12 flex flex-col gap-8 flex-1">
