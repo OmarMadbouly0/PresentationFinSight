@@ -176,7 +176,7 @@ export function S2_Agenda() {
   const themes = ["cyan", "violet", "emerald", "amber", "primary", "rose"];
   
   // Maps the 12 agenda items to their starting slide index in the presentation
-  const targetIndices = [2, 3, 4, 5, 7, 9, 13, 15, 16, 20, 21, 22];
+  const targetIndices = [2, 3, 4, 5, 7, 9, 10, 12, 11, 19, 20, 21];
 
   const handleNavigate = (index: number) => {
     const target = targetIndices[index];
@@ -1491,15 +1491,15 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
-  { id: "s18", title: "Financial Records", C: S18_FinancialRecords },
-  { id: "s19", title: "CSV Data Import", C: S19_CSVImport },
-  { id: "s20", title: "Workspaces", C: S20_Workspaces },
   { id: "s8", title: "AI Forecasting", C: S8_Forecast },
-  { id: "s9", title: "AI Assistant", C: S9_Assistant },
-  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
   { id: "s11", title: "Notifications", C: S11_Notifications },
+  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
+  { id: "s19", title: "CSV Data Import", C: S19_CSVImport },
+  { id: "s18", title: "Financial Records", C: S18_FinancialRecords },
+  { id: "s20", title: "Workspaces", C: S20_Workspaces },
   { id: "s21", title: "Admin Dashboard", C: S21_AdminDashboard },
   { id: "s22", title: "Customer Support", C: S22_SupportTickets },
+  { id: "s9", title: "AI Assistant", C: S9_Assistant },
   { id: "s12", title: "Tech Stack", C: S12_Stack },
   { id: "s13", title: "Future Work", C: S13_Future },
   { id: "s14", title: "Conclusion", C: S14_Conclusion },

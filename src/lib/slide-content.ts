@@ -201,7 +201,7 @@ export const defaultContent: ContentMap = {
     githubLabel: "GitHub Repository",
     githubLink: "https://github.com/FatmaHaggag/FinSight",
     demoLabel: "Live Application",
-    demoLink: "https://fin-sight-eight-ruby.vercel.app/",
+    demoLink: "https://finsight-28330.westeurope.cloudapp.azure.com",
   },
   s26: {
     kicker: "22 · The Team",
@@ -334,7 +334,7 @@ export const defaultContent: ContentMap = {
 
 /* ---------- Editor schema (drives the form UI) ---------- */
 export const slideOrder: SlideId[] = [
-  "s1", "s2", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s15", "s26", "s16",
+  "s1", "s2", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s8", "s11", "s10", "s19", "s18", "s20", "s21", "s22", "s9", "s12", "s13", "s14", "s15", "s26", "s16",
 ];
 
 export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }> = {
