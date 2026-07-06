@@ -180,12 +180,11 @@ export const defaultContent: ContentMap = {
     titlePre: "Post-V1",
     titleAccent: "Enhancements",
     phases: [
-      "Direct Plaid / Stripe integration for automated syncing",
-      "Multi-currency support for international operations",
-      "Exporting forecast reports to PDF/Excel",
-      "SignalR push updates for scenario results",
-      "Dynamic LangFlow test company scaling",
-      "Expanded multi-tenant scenario analysis"
+      "Open banking integration",
+      "Predictive anomaly and fraud detection",
+      "Budget planning and variance analysis",
+      "Benchmarking and industry insights",
+      "Multi-currency and global financial support"
     ],
   },
   s14: {
