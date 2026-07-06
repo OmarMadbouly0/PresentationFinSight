@@ -5,7 +5,7 @@ import {
   TrendingUp, AlertTriangle, Database, Code2, Rocket, CheckCircle2,
   Play, MessageSquareText, ArrowRight, ArrowDown, Wand2, Briefcase, Calculator,
   Users, MousePointerClick, ShieldCheck, Activity, Ticket, Globe,
-  Heart, Share2, DollarSign, Mail
+  Heart, Share2, DollarSign, Mail, Quote
 } from "lucide-react";
 import { type ReactNode, useState, useEffect } from "react";
 import { useSlideContent, str, arr, parseKV, parseGroup, type SlideId } from "@/lib/slide-content";
@@ -265,6 +265,36 @@ export function S3_Intro() {
             );
           })}
         </div>
+      </div>
+    </SlideShell>
+  );
+}
+
+/* ============ SLIDE 27: HOOK ANECDOTE ============ */
+export function S27_Hook() {
+  const c = useSlideContent("s27");
+  return (
+    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
+      <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
+      <div className="mt-8 max-w-5xl mx-auto flex-1 flex flex-col justify-center">
+        <motion.div variants={item} className="glass p-10 md:p-14 rounded-[3rem] relative">
+          <Quote className="absolute -top-6 -left-6 size-16 text-cyan/40" />
+          
+          <div className="space-y-6 text-xl md:text-2xl leading-relaxed text-foreground/90 font-display">
+            <p>{str(c.p1)}</p>
+            <div className="pl-6 border-l-4 border-cyan/30 text-muted-foreground whitespace-pre-wrap text-lg md:text-xl leading-relaxed">
+              {str(c.p2)}
+            </div>
+            <p className="whitespace-pre-wrap">{str(c.p3)}</p>
+            <p className="text-muted-foreground text-lg md:text-xl">{str(c.p4)}</p>
+          </div>
+          
+          <motion.div variants={pop} className="mt-10 p-6 rounded-2xl bg-cyan/10 border border-cyan/20">
+            <p className="text-xl md:text-2xl text-cyan font-semibold leading-snug">
+              {str(c.punchline)}
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
     </SlideShell>
   );
@@ -1485,6 +1515,7 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s1", title: "Title", C: S1_Title },
   { id: "s2", title: "Agenda", C: S2_Agenda },
   { id: "s3", title: "Introduction", C: S3_Intro },
+  { id: "s27", title: "The Reality", C: S27_Hook },
   { id: "s4", title: "Problem Statement", C: S4_Problem },
   { id: "s5", title: "Objectives", C: S5_Objectives },
   // Gamal
