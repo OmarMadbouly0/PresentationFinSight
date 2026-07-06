@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, RefreshCw } from "lucide-react";
 import { SLIDES } from "@/components/slides";
@@ -71,10 +71,45 @@ function Presentation() {
     };
   }, [i, go]);
 
+  const pointerStart = useRef<{x: number, y: number, time: number} | null>(null);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    pointerStart.current = { x: e.clientX, y: e.clientY, time: Date.now() };
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!pointerStart.current) return;
+    const { x: startX, y: startY, time: startTime } = pointerStart.current;
+    pointerStart.current = null;
+
+    const target = e.target as HTMLElement;
+    if (target.closest("button, a, input, textarea, select, [role='button']")) return;
+    if (target.closest(".slide-editor")) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    const dt = Date.now() - startTime;
+
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) go(i + 1);
+      else go(i - 1);
+      return;
+    }
+
+    if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && dt < 500) {
+      if (e.clientX > window.innerWidth / 2) go(i + 1);
+      else go(i - 1);
+    }
+  };
+
   const { C, title } = activeSlide;
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-background">
+    <div 
+      className="relative h-screen w-screen overflow-hidden bg-background"
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+    >
       {/* Slide stage */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait" custom={dir}>
@@ -138,7 +173,7 @@ function Presentation() {
 
       {/* Bottom controls */}
       {!isFullscreen && (
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 rounded-full glass px-3 py-2">
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 rounded-full glass px-3 py-2 scale-75 sm:scale-100 origin-bottom w-max">
           <button onClick={() => go(i - 1)} disabled={i === 0}
             className="flex size-9 items-center justify-center rounded-full hover:bg-white/10 disabled:opacity-30 transition" aria-label="Previous slide">
             <ChevronLeft className="size-4" />

@@ -302,15 +302,15 @@ export const defaultContent: ContentMap = {
     kicker: "07 · Business Model",
     titlePre: "How FinSight",
     titleAccent: "Creates Value",
-    partners: ["OpenAI / Anthropic", "Nixtla (TimeGPT)", "Cloud Providers (Azure/AWS)"],
-    activities: ["Platform Development", "AI Model Fine-Tuning", "Security & Compliance"],
-    valueProps: ["Automated Financial Forecasting", "Real-Time AI CFO Alerts", "Actionable Scenario Simulation"],
-    relationships: ["Self-Serve SaaS", "Automated Support", "Community & Docs"],
-    segments: ["SME Owners", "Accountants", "Fractional CFOs"],
-    resources: ["Proprietary Algorithms", "Financial Data Pipelines", "Cloud Infrastructure"],
-    channels: ["Direct Sales", "Partnerships (Accounting Firms)", "Digital Marketing"],
-    cost: ["Cloud Infrastructure & API Costs", "R&D and Engineering", "Marketing & Customer Support"],
-    revenue: ["Tiered SaaS Subscriptions", "White-Label Licensing (B2B)", "Usage-Based AI API Fees"],
+    partners: ["Anthropic (Claude LLMs)", "Groq (High-Speed LPU Inference)", "Nixtla (TimeGPT Models)", "LangFlow (Agent Orchestration)", "Cloud Providers (Azure/AWS)"],
+    activities: ["Scenario Simulation Orchestration", "Financial Data Ingestion & Sync", "B2G / B2B Solution Customization"],
+    valueProps: ["Replace spreadsheet analysis with AI", "Forecast grant & sponsorship ROI", "Compare startup equity dilution securely", "CFO-as-a-Service"],
+    relationships: ["Enterprise & B2G Support", "Self-Serve Simulation Dashboard", "Strategic Advisory"],
+    segments: ["Government Hubs (ITI, NTI)", "Non-profits (Misr El Kheir)", "Startup Incubators (Creativa)", "Strategic Investors & NGOs"],
+    resources: ["LLM & Agent Infrastructure", "Time-Series Forecasting Models", "Strategic Investment Datasets"],
+    channels: ["Government Tenders (MCIT, ITIDA)", "Non-profit Network Partnerships", "Direct Sales to Incubators"],
+    cost: ["Token-based API Costs (Groq, Anthropic)", "Nixtla TimeGPT Enterprise Plan", "Cloud Hosting (Azure/AWS)"],
+    revenue: ["Enterprise SaaS Subscriptions", "Usage-Based API Token Tiers", "White-Label Licensing for Gov Hubs"],
   },
   s24: {
     kicker: "08 · Investment Ecosystem",
@@ -687,7 +687,7 @@ for (const id of slideOrder) {
 }
 
 /* ---------- Store (vanilla, localStorage-backed) ---------- */
-const STORAGE_KEY = "finsight:content:v9";
+const STORAGE_KEY = "finsight:content:v10";
 let state: ContentMap = loadInitial();
 const listeners = new Set<() => void>();
 
