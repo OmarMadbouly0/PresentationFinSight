@@ -1481,28 +1481,36 @@ export function S26_Team() {
 
 /* registry */
 export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
+  // Omar
   { id: "s1", title: "Title", C: S1_Title },
   { id: "s2", title: "Agenda", C: S2_Agenda },
   { id: "s3", title: "Introduction", C: S3_Intro },
   { id: "s4", title: "Problem Statement", C: S4_Problem },
   { id: "s5", title: "Objectives", C: S5_Objectives },
+  // Gamal
   { id: "s23", title: "Business Model Canvas", C: S23_BMC },
   { id: "s24", title: "Investment Ecosystem", C: S24_Ecosystem },
   { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
+  // Carol
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
+  { id: "s8", title: "AI Forecasting", C: S8_Forecast },
+  { id: "s11", title: "Notifications", C: S11_Notifications },
+  // Gamal
+  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
+  // Nancy
   { id: "s18", title: "Financial Records", C: S18_FinancialRecords },
   { id: "s19", title: "CSV Data Import", C: S19_CSVImport },
   { id: "s20", title: "Workspaces", C: S20_Workspaces },
-  { id: "s8", title: "AI Forecasting", C: S8_Forecast },
-  { id: "s9", title: "AI Assistant", C: S9_Assistant },
-  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
-  { id: "s11", title: "Notifications", C: S11_Notifications },
+  // Fatma
   { id: "s21", title: "Admin Dashboard", C: S21_AdminDashboard },
   { id: "s22", title: "Customer Support", C: S22_SupportTickets },
+  // Mosad
+  { id: "s9", title: "AI Assistant", C: S9_Assistant },
   { id: "s12", title: "Tech Stack", C: S12_Stack },
   { id: "s13", title: "Future Work", C: S13_Future },
   { id: "s14", title: "Conclusion", C: S14_Conclusion },
+  // Gamal
   { id: "s15", title: "Demo", C: S15_Demo },
   { id: "s26", title: "Team", C: S26_Team },
   { id: "s16", title: "Thank You", C: S16_Thanks },

@@ -38,7 +38,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s3: {
-    kicker: "01 · Introduction",
+    kicker: "03 · Introduction",
     titlePre: "Meet",
     titleAccent: "FinSight",
     tagline: "The Autonomous AI CFO for the Modern Enterprise",
@@ -51,7 +51,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s4: {
-    kicker: "02 · Problem Statement",
+    kicker: "04 · Problem Statement",
     titlePre: "The",
     titleAccent: "SME Crisis",
     statValue: "82%",
@@ -63,7 +63,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s5: {
-    kicker: "03 · Project Objectives",
+    kicker: "05 · Project Objectives",
     titlePre: "Our",
     titleAccent: "Mission",
     missionStatement: "To build a proactive financial nervous system that transforms raw accounting data into actionable foresight.",
@@ -74,7 +74,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s17: {
-    kicker: "07 · Target Customers",
+    kicker: "09 · Target Customers",
     titlePre: "Who We",
     titleAccent: "Serve",
     subtitle: "FinSight is built specifically for organizations that need CFO-level financial intelligence without hiring a full-time CFO.",
@@ -103,7 +103,7 @@ export const defaultContent: ContentMap = {
   },
 
   s7: {
-    kicker: "08 · Core Dashboard",
+    kicker: "10 · Dashboard",
     titlePre: "Intelligent",
     titleAccent: "Command Center",
     intro: "A centralized, real-time overview of your company's financial heartbeat.",
@@ -114,7 +114,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s8: {
-    kicker: "12 · AI Forecasting",
+    kicker: "11 · AI Forecasting",
     titlePre: "AI",
     titleAccent: "Forecasting",
     targets: ["Cash Flow", "Runway", "Liquidity", "Invoices"],
@@ -126,7 +126,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s9: {
-    kicker: "13 · AI Assistant",
+    kicker: "19 · AI Assistant",
     titlePre: "Chat with your",
     titleAccent: "finances",
     intro: "Natural language interface — ask anything, get instant insight from your data.",
@@ -139,7 +139,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s10: {
-    kicker: "14 · Scenario Simulator",
+    kicker: "13 · Scenario Simulator",
     titlePre: "Run",
     titleAccent: "what-if",
     titleSuffix: "on your business",
@@ -147,7 +147,7 @@ export const defaultContent: ContentMap = {
     impacts: ["Baseline: Cash Flow", "Simulated: Cash Flow", "Runway: Extension", "Threshold: Monitoring"],
   },
   s11: {
-    kicker: "15 · Smart Notifications",
+    kicker: "12 · Notifications (Alerts)",
     titlePre: "Smart Financial",
     titleAccent: "Alerts",
     titleSuffix: "",
@@ -156,7 +156,7 @@ export const defaultContent: ContentMap = {
     flow: ["Forecast Anomaly", "LangFlow Agent Analysis", "Real-time SignalR Alert", "Strategic Recommendation"],
   },
   s12: {
-    kicker: "18 · Technology Stack",
+    kicker: "20 · Tech Stack",
     titlePre: "System Architecture &",
     titleAccent: "Tech Stack",
     groups: [
@@ -166,7 +166,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s13: {
-    kicker: "19 · Future Roadmap",
+    kicker: "21 · Future Work",
     titlePre: "Post-V1",
     titleAccent: "Enhancements",
     phases: [
@@ -179,7 +179,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s14: {
-    kicker: "20 · Conclusion",
+    kicker: "22 · Conclusion",
     titlePre: "A production-ready",
     titleAccent: "AI Finance Platform",
     wins: [
@@ -192,7 +192,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s15: {
-    kicker: "21 · Live Demonstration",
+    kicker: "23 · Demo",
     titlePre: "Live",
     titleAccent: "Demonstration",
     intro: "Experience FinSight in action.",
@@ -204,7 +204,7 @@ export const defaultContent: ContentMap = {
     demoLink: "https://fin-sight-eight-ruby.vercel.app/",
   },
   s26: {
-    kicker: "22 · The Team",
+    kicker: "24 · Team",
     titlePre: "Meet the",
     titleAccent: "Minds",
     intro: "The engineers and visionaries behind FinSight.",
@@ -221,7 +221,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s18: {
-    kicker: "09 · Financial Records",
+    kicker: "14 · Financial Records",
     titlePre: "Financial",
     titleAccent: "Records",
     intro: "A comprehensive view of your company's financial activities.",
@@ -233,7 +233,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Track bill status", "Manage invoices", "Automatically convert paid bills into transactions"],
   },
   s19: {
-    kicker: "10 · CSV Data Import",
+    kicker: "15 · CSV Data Import",
     titlePre: "CSV Data",
     titleAccent: "Import",
     intro: "Seamlessly bring your existing data into the platform.",
@@ -245,7 +245,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Enables importing invoice and bill data from CSV files for easier tracking and forecasting."],
   },
   s20: {
-    kicker: "11 · Workspaces",
+    kicker: "16 · Workspaces",
     titlePre: "Collaborative",
     titleAccent: "Workspaces",
     intro: "Role-based access to ensure everyone has the right tools.",
@@ -257,7 +257,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Dashboard", "Transactions", "Bills", "CSV Import", "AI Assistant"],
   },
   s21: {
-    kicker: "16 · Admin Dashboard",
+    kicker: "17 · Admin Dashboard",
     titlePre: "Admin",
     titleAccent: "Dashboard",
     intro: "The operational control center of FinSight, designed exclusively for platform administrators to manage the entire SaaS ecosystem.",
@@ -275,7 +275,7 @@ export const defaultContent: ContentMap = {
     f5Desc: "Monitor background AI processes and forecasting jobs.",
   },
   s22: {
-    kicker: "17 · Customer Support",
+    kicker: "18 · Customer Support",
     titlePre: "Customer",
     titleAccent: "Support",
     intro: "Integrated Customer Support system enabling seamless communication between users and platform administrators without leaving the application.",
@@ -289,7 +289,7 @@ export const defaultContent: ContentMap = {
     contactEmail: "finsightwebsite@gmail.com",
   },
   s23: {
-    kicker: "04 · Business Model",
+    kicker: "06 · Business Model Canvas",
     titlePre: "How FinSight",
     titleAccent: "Creates Value",
     partners: ["OpenAI / Anthropic", "Nixtla (TimeGPT)", "Cloud Providers (Azure/AWS)"],
@@ -303,7 +303,7 @@ export const defaultContent: ContentMap = {
     revenue: ["Tiered SaaS Subscriptions", "White-Label Licensing (B2B)", "Usage-Based AI API Fees"],
   },
   s24: {
-    kicker: "05 · Investment Ecosystem",
+    kicker: "07 · Investment Ecosystem",
     titlePre: "Investment",
     titleAccent: "Ecosystem",
     intro: "FinSight empowers innovation hubs, government entities, and NGOs to evaluate and select the best strategic partners using the Scenario Simulator.",
@@ -313,7 +313,7 @@ export const defaultContent: ContentMap = {
     scenarioDesc: "Compare multiple offers (e.g., AWS vs 500 Global) by analyzing equity dilution, runway impact, and cloud credits, receiving an AI-generated optimal recommendation.",
   },
   s25: {
-    kicker: "06 · Competitive Landscape",
+    kicker: "08 · Competitors",
     titlePre: "Why FinSight",
     titleAccent: "Wins",
     c1Name: "Xero",
@@ -665,7 +665,7 @@ for (const id of slideOrder) {
 }
 
 /* ---------- Store (vanilla, localStorage-backed) ---------- */
-const STORAGE_KEY = "finsight:content:v6";
+const STORAGE_KEY = "finsight:content:v7";
 let state: ContentMap = loadInitial();
 const listeners = new Set<() => void>();
 
