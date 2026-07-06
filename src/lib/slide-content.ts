@@ -4,7 +4,7 @@ import { useSyncExternalStore } from "react";
 /* ---------- Types ---------- */
 export type SlideId =
   | "s1" | "s2" | "s3" | "s4" | "s5" | "s7" | "s8"
-  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25" | "s26" | "s27";
+  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s25" | "s26" | "s27";
 
 export type FieldType = "text" | "textarea" | "list" | "image";
 export type FieldSchema = { key: string; label: string; type: FieldType; hint?: string };
@@ -312,16 +312,7 @@ export const defaultContent: ContentMap = {
     cost: ["Token-based API Costs (Groq, Anthropic)", "Nixtla TimeGPT Enterprise Plan", "Cloud Hosting (Azure/AWS)"],
     revenue: ["Enterprise SaaS Subscriptions", "Usage-Based API Token Tiers", "White-Label Licensing for Gov Hubs"],
   },
-  s24: {
-    kicker: "08 · Investment Ecosystem",
-    titlePre: "Investment",
-    titleAccent: "Ecosystem",
-    intro: "FinSight empowers innovation hubs, government entities, and NGOs to evaluate and select the best strategic partners using the Scenario Simulator.",
-    orgs: ["ITI & NTI (Government)", "ITIDA & Creativa (Startup Ecosystems)", "Foundations & NGOs"],
-    partners: ["Microsoft & AWS", "500 Global & Flat6Labs", "World Bank & USAID"],
-    scenarioTitle: "Use Case: Investor Selection",
-    scenarioDesc: "Compare multiple offers (e.g., AWS vs 500 Global) by analyzing equity dilution, runway impact, and cloud credits, receiving an AI-generated optimal recommendation.",
-  },
+
   s25: {
     kicker: "09 · Competitive Landscape",
     titlePre: "Why FinSight",
@@ -344,7 +335,7 @@ export const defaultContent: ContentMap = {
 
 /* ---------- Editor schema (drives the form UI) ---------- */
 export const slideOrder: SlideId[] = [
-  "s1", "s2", "s27", "s3", "s4", "s5", "s24", "s25", "s17", "s23", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s15", "s26", "s16",
+  "s1", "s2", "s27", "s3", "s4", "s5", "s17", "s25", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s23", "s15", "s26", "s16",
 ];
 
 export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }> = {
@@ -638,19 +629,6 @@ export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }
       { key: "resources", label: "Key Resources", type: "list" },
       { key: "channels", label: "Channels", type: "list" },
       { key: "cost", label: "Cost Structure", type: "list" },
-      { key: "revenue", label: "Revenue Streams", type: "list" },
-    ]
-  },
-  s24: {
-    title: "Investment Ecosystem", fields: [
-      { key: "kicker", label: "Kicker", type: "text" },
-      { key: "titlePre", label: "Title Pre", type: "text" },
-      { key: "titleAccent", label: "Title Accent", type: "text" },
-      { key: "intro", label: "Intro", type: "textarea" },
-      { key: "orgs", label: "Target Organizations", type: "list" },
-      { key: "partners", label: "Strategic Partners", type: "list" },
-      { key: "scenarioTitle", label: "Scenario Title", type: "text" },
-      { key: "scenarioDesc", label: "Scenario Desc", type: "textarea" },
     ]
   },
   s25: {

@@ -176,7 +176,7 @@ export function S2_Agenda() {
   const themes = ["cyan", "violet", "emerald", "amber", "primary", "rose"];
   
   // Maps the 12 agenda items to their starting slide index in the presentation
-  const targetIndices = [2, 4, 5, 6, 7, 10, 11, 13, 12, 20, 21, 22];
+  const targetIndices = [2, 4, 5, 21, 7, 8, 9, 11, 10, 18, 19, 20];
 
   const handleNavigate = (index: number) => {
     const target = targetIndices[index];
@@ -859,8 +859,6 @@ function CustomerCard({
   highlight,
   badge,
   delay = 0,
-  isRevealed = true,
-  onReveal,
   theme,
 }: {
   icon: string;
@@ -872,8 +870,6 @@ function CustomerCard({
   highlight?: string;
   badge?: string;
   delay?: number;
-  isRevealed?: boolean;
-  onReveal?: () => void;
   theme?: "cyan" | "violet" | "emerald" | "amber" | "primary";
 }) {
   const Icon = iconMap[icon] ?? Briefcase;
@@ -887,23 +883,7 @@ function CustomerCard({
     >
       <div className={`absolute inset-0 bg-gradient-to-br from-${t}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`} />
 
-      <AnimatePresence>
-        {!isRevealed && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, y: 10, filter: "blur(10px)" }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-background/60 backdrop-blur-xl"
-            onClick={onReveal}
-          >
-            <Icon className={`size-14 text-${t} mb-4 opacity-40`} />
-            <div className="font-display text-2xl font-semibold opacity-60 text-center px-4">{title}</div>
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest bg-white/5 border border-white/10 px-5 py-2.5 rounded-full">
-              <MousePointerClick className="size-4" /> Click to reveal
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
 
       <div className="flex items-center gap-5 w-full">
         <div className={`size-20 rounded-3xl flex items-center justify-center bg-${t}/15 text-${t} shrink-0`}>
@@ -971,21 +951,6 @@ function CustomerCard({
 
 export function S17_TargetCustomers() {
   const c = useSlideContent("s17");
-  const [revealStep, setRevealStep] = useState(0);
-
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
-        if (revealStep < 3) {
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          setRevealStep(s => s + 1);
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKey, { capture: true });
-    return () => window.removeEventListener("keydown", handleKey, { capture: true });
-  }, [revealStep]);
 
   return (
     <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>} scaleDown>
@@ -1002,8 +967,6 @@ export function S17_TargetCustomers() {
           pains={arr(c.c1Pains)}
           benefits={arr(c.c1Benefits)}
           highlight={str(c.c1Highlight)}
-          isRevealed={revealStep >= 1}
-          onReveal={() => setRevealStep(Math.max(revealStep, 1))}
           theme="cyan"
         />
         <CustomerCard
@@ -1012,8 +975,6 @@ export function S17_TargetCustomers() {
           profile={arr(c.c2Profile)}
           pains={arr(c.c2Pains)}
           benefits={arr(c.c2Benefits)}
-          isRevealed={revealStep >= 2}
-          onReveal={() => setRevealStep(Math.max(revealStep, 2))}
           theme="violet"
         />
         <CustomerCard
@@ -1023,8 +984,6 @@ export function S17_TargetCustomers() {
           pains={arr(c.c3Pains)}
           benefits={arr(c.c3Benefits)}
           badge={str(c.c3Badge)}
-          isRevealed={revealStep >= 3}
-          onReveal={() => setRevealStep(Math.max(revealStep, 3))}
           theme="emerald"
         />
       </div>
@@ -1345,73 +1304,6 @@ export function S23_BMC() {
   );
 }
 
-/* ============ SLIDE 24: INVESTMENT ECOSYSTEM ============ */
-export function S24_Ecosystem() {
-  const c = useSlideContent("s24");
-  return (
-    <SlideShell kicker={<Kicker>{str(c.kicker)}</Kicker>}>
-      <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
-      <motion.p variants={item} className="mt-6 max-w-4xl text-2xl font-bold text-muted-foreground">
-        {str(c.intro)}
-      </motion.p>
-      
-      <div className="mt-12 grid grid-cols-5 gap-8 flex-1">
-        {/* Left Column: Ecosystem (3 columns wide) */}
-        <div className="col-span-3 grid grid-rows-2 gap-8">
-          <motion.div variants={fadeRight} className="glass rounded-[2.5rem] p-8 border-l-[8px] border-cyan flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4 mb-6 text-cyan">
-              <Globe className="size-10" />
-              <div className="text-2xl font-bold uppercase tracking-widest">Target Organizations</div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {arr(c.orgs).map((org, i) => (
-                <div key={i} className="flex items-center gap-3 text-xl font-bold text-foreground/90">
-                  <span className="size-2.5 rounded-full bg-cyan shrink-0" />
-                  {org}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div variants={fadeRight} className="glass rounded-[2.5rem] p-8 border-l-[8px] border-emerald flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute inset-0 bg-emerald/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4 mb-6 text-emerald">
-              <Briefcase className="size-10" />
-              <div className="text-2xl font-bold uppercase tracking-widest">Strategic Partners</div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {arr(c.partners).map((p, i) => (
-                <div key={i} className="flex items-center gap-3 text-xl font-bold text-foreground/90">
-                  <span className="size-2.5 rounded-full bg-emerald shrink-0" />
-                  {p}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right Column: Scenario Simulator Use Case (2 columns wide) */}
-        <motion.div variants={pop} className="col-span-2 glass rounded-[3rem] p-10 border-t-[10px] border-violet shadow-2xl relative overflow-hidden flex flex-col justify-center">
-           <div className="absolute inset-0 bg-gradient-to-br from-violet/10 to-cyan/5" />
-           <div className="relative z-10 flex flex-col items-center text-center">
-             <div className="size-20 rounded-3xl bg-violet/20 text-violet flex items-center justify-center mb-6">
-                <FlaskConical className="size-10" />
-             </div>
-             <h3 className="text-3xl font-display font-bold text-foreground mb-6">{str(c.scenarioTitle)}</h3>
-             <p className="text-2xl leading-relaxed text-muted-foreground font-medium">
-               {str(c.scenarioDesc)}
-             </p>
-             <div className="mt-8 px-6 py-3 rounded-full bg-violet/10 border border-violet/20 text-violet text-lg font-bold uppercase tracking-widest flex items-center gap-2">
-               <Bot className="size-5" /> AI Optimal Match
-             </div>
-           </div>
-        </motion.div>
-
-      </div>
-    </SlideShell>
-  );
-}
 
 /* ============ SLIDE 25: COMPETITORS ============ */
 export function S25_Competitors() {
@@ -1517,10 +1409,8 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s27", title: "The Reality", C: S27_Hook },
   { id: "s4", title: "Problem Statement", C: S4_Problem },
   { id: "s5", title: "Objectives", C: S5_Objectives },
-  { id: "s24", title: "Investment Ecosystem", C: S24_Ecosystem },
-  { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
-  { id: "s23", title: "Business Model Canvas", C: S23_BMC },
+  { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
   { id: "s8", title: "AI Forecasting", C: S8_Forecast },
   { id: "s11", title: "Notifications", C: S11_Notifications },
@@ -1534,6 +1424,7 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s12", title: "Tech Stack", C: S12_Stack },
   { id: "s13", title: "Future Work", C: S13_Future },
   { id: "s14", title: "Conclusion", C: S14_Conclusion },
+  { id: "s23", title: "Business Model Canvas", C: S23_BMC },
   { id: "s15", title: "Demo", C: S15_Demo },
   { id: "s26", title: "Team", C: S26_Team },
   { id: "s16", title: "Thank You", C: S16_Thanks },
