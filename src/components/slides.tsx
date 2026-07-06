@@ -96,7 +96,7 @@ export function S1_Title() {
             <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-cyan">
               <Sparkles className="size-3.5" /> {str(c.kicker)}
             </motion.div>
-            <motion.h1 variants={item} className="mt-6 font-display text-7xl md:text-[8.5rem] font-bold leading-[0.9] tracking-tight">
+            <motion.h1 variants={item} className="mt-6 font-display text-5xl sm:text-6xl md:text-[8.5rem] font-bold leading-[0.9] tracking-tight">
               {str(c.brandPrefix)}<span className="text-gradient">{str(c.brandAccent)}</span>
             </motion.h1>
             <motion.p variants={item} className="mt-6 max-w-xl text-xl text-muted-foreground leading-relaxed">
@@ -190,7 +190,7 @@ export function S2_Agenda() {
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} />
       
       <div className="mt-16 flex-1 flex flex-col justify-center">
-        <motion.div variants={item} className="grid grid-cols-3 gap-8 w-full">
+        <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {items.map((t, i) => {
             const theme = themes[i % themes.length];
             return (
@@ -231,16 +231,16 @@ export function S3_Intro() {
       <div className="mt-12 flex flex-col gap-10 flex-1 justify-center">
         {/* Top: Massive Tagline */}
         <motion.div variants={item} className="text-center">
-          <h2 className="text-5xl font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan via-violet to-emerald pb-4">
+          <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan via-violet to-emerald pb-4">
             {str(c.tagline)}
           </h2>
-          <p className="mt-6 text-3xl leading-snug text-muted-foreground max-w-5xl mx-auto font-medium">
+          <p className="mt-6 text-xl md:text-3xl leading-snug text-muted-foreground max-w-5xl mx-auto font-medium">
             {str(c.description)}
           </p>
         </motion.div>
 
         {/* Bottom: 4 Core Features laid out horizontally */}
-        <div className="grid grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {arr(c.coreFeatures).map((feat, i) => {
             const Icon = featureIcons[i % featureIcons.length];
             const colors = [
@@ -310,7 +310,7 @@ export function S4_Problem() {
         {/* Left: Massive Stat */}
         <motion.div variants={pop} className="glass rounded-3xl p-10 flex flex-col justify-center items-center text-center border-b-8 border-rose-500 relative overflow-hidden group">
           <div className="absolute inset-0 bg-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="text-[8rem] font-display font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-400 to-rose-600">
+          <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="text-7xl md:text-[8rem] font-display font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-rose-400 to-rose-600">
             {str(c.statValue)}
           </motion.div>
           <div className="mt-6 text-2xl font-bold text-foreground/80 leading-snug">
@@ -356,7 +356,7 @@ export function S5_Objectives() {
             <Sparkles className="size-8" />
             <span className="text-xl uppercase tracking-widest font-bold">The Vision</span>
           </div>
-          <p className="text-5xl leading-snug font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-muted-foreground">
+          <p className="text-3xl md:text-5xl leading-snug font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-muted-foreground">
             {str(c.missionStatement)}
           </p>
         </motion.div>
@@ -411,7 +411,7 @@ export function S7_Dashboard() {
           </div>
         </motion.div>
 
-        <motion.div variants={pop} className="glass rounded-[3rem] p-6 relative overflow-hidden flex items-center justify-center border-t-8 border-violet shadow-2xl h-[700px]">
+        <motion.div variants={pop} className="glass rounded-[3rem] p-6 relative overflow-hidden flex items-center justify-center border-t-8 border-violet shadow-2xl h-64 md:h-[700px]">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-violet/10" />
           <img src="/dashboard.png" alt="Financial Dashboard" className="w-full h-full object-cover object-top rounded-[2rem] shadow-inner relative z-10" />
         </motion.div>
@@ -430,7 +430,7 @@ export function S8_Forecast() {
       <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
         <motion.div variants={item} className="glass rounded-3xl p-10 border-l-8 border-violet">
           <div className="text-xl uppercase tracking-widest text-muted-foreground font-bold">Predicts</div>
-          <div className="mt-8 grid grid-cols-2 gap-6">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {arr(c.targets).map((t, i) => (
               <motion.div key={`${t}-${i}`} variants={pop} className="rounded-2xl bg-gradient-to-br from-cyan/20 to-violet/20 p-6 text-center shadow-lg">
                 <div className="font-display text-3xl font-bold">{t}</div>
@@ -562,7 +562,7 @@ export function S10_Scenario() {
 
         <motion.div variants={item} className="glass rounded-3xl p-8 border-l-8 border-violet flex flex-col justify-center">
           <div className="text-xl uppercase tracking-widest text-violet font-bold">AI calculates impact</div>
-          <div className="mt-8 grid grid-cols-2 gap-6">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {impacts.map((im, i) => {
               const col = colors[i % colors.length];
               return (
@@ -596,7 +596,7 @@ export function S11_Notifications() {
       <SectionTitle pre={str(c.titlePre)} accent={str(c.titleAccent)} suffix={str(c.titleSuffix)} />
       <div className="mt-12 grid md:grid-cols-2 gap-8 flex-1 content-center">
         <motion.div variants={item} className="space-y-8 flex flex-col justify-center">
-          <p className="text-3xl text-muted-foreground leading-relaxed">{str(c.intro)}</p>
+          <p className="text-xl md:text-3xl text-muted-foreground leading-relaxed">{str(c.intro)}</p>
           <div className="space-y-6">
             {arr(c.alerts).map((a, i) => {
               const col = alertColors[i % alertColors.length];
@@ -812,7 +812,7 @@ export function S16_Thanks() {
               <Sparkles className="size-20 text-white" />
             </div>
           </motion.div>
-          <motion.h1 variants={item} className="font-display text-[12rem] font-bold leading-none mb-4">
+          <motion.h1 variants={item} className="font-display text-7xl md:text-[12rem] font-bold leading-none mb-4">
             Thank <span className="text-gradient">You</span>
           </motion.h1>
           <motion.p variants={item} className="mt-8 text-5xl text-muted-foreground font-medium mb-12">Questions?</motion.p>
@@ -1511,37 +1511,29 @@ export function S26_Team() {
 
 /* registry */
 export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
-  // Omar
   { id: "s1", title: "Title", C: S1_Title },
   { id: "s2", title: "Agenda", C: S2_Agenda },
   { id: "s3", title: "Introduction", C: S3_Intro },
   { id: "s27", title: "The Reality", C: S27_Hook },
   { id: "s4", title: "Problem Statement", C: S4_Problem },
   { id: "s5", title: "Objectives", C: S5_Objectives },
-  // Gamal
   { id: "s23", title: "Business Model Canvas", C: S23_BMC },
   { id: "s24", title: "Investment Ecosystem", C: S24_Ecosystem },
   { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
-  // Carol
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
-  { id: "s8", title: "AI Forecasting", C: S8_Forecast },
-  { id: "s11", title: "Notifications", C: S11_Notifications },
-  // Gamal
-  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
-  // Nancy
   { id: "s18", title: "Financial Records", C: S18_FinancialRecords },
   { id: "s19", title: "CSV Data Import", C: S19_CSVImport },
   { id: "s20", title: "Workspaces", C: S20_Workspaces },
-  // Fatma
+  { id: "s8", title: "AI Forecasting", C: S8_Forecast },
+  { id: "s9", title: "AI Assistant", C: S9_Assistant },
+  { id: "s10", title: "Scenario Simulator", C: S10_Scenario },
+  { id: "s11", title: "Notifications", C: S11_Notifications },
   { id: "s21", title: "Admin Dashboard", C: S21_AdminDashboard },
   { id: "s22", title: "Customer Support", C: S22_SupportTickets },
-  // Mosad
-  { id: "s9", title: "AI Assistant", C: S9_Assistant },
   { id: "s12", title: "Tech Stack", C: S12_Stack },
   { id: "s13", title: "Future Work", C: S13_Future },
   { id: "s14", title: "Conclusion", C: S14_Conclusion },
-  // Gamal
   { id: "s15", title: "Demo", C: S15_Demo },
   { id: "s26", title: "Team", C: S26_Team },
   { id: "s16", title: "Thank You", C: S16_Thanks },
