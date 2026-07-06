@@ -4,7 +4,7 @@ import { useSyncExternalStore } from "react";
 /* ---------- Types ---------- */
 export type SlideId =
   | "s1" | "s2" | "s3" | "s4" | "s5" | "s7" | "s8"
-  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25" | "s26";
+  | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25" | "s26" | "s27";
 
 export type FieldType = "text" | "textarea" | "list" | "image";
 export type FieldSchema = { key: string; label: string; type: FieldType; hint?: string };
@@ -37,8 +37,18 @@ export const defaultContent: ContentMap = {
       "Smart Notifications", "Technology Stack", "Future Roadmap", "Conclusion",
     ],
   },
+  s27: {
+    kicker: "The Reality",
+    titlePre: "Meet",
+    titleAccent: "Sarah",
+    p1: "Imagine it's Monday morning. Sarah, the owner of a growing company with 30 employees, receives three emails before 9 a.m.",
+    p2: "1. A major customer delays a payment by 45 days.\n2. Her sales manager wants to hire five new employees.\n3. The marketing team proposes organizing a large event.",
+    p3: "Each decision sounds reasonable. But together, they raise one critical question:\n\n'Can the company actually afford this?'",
+    p4: "Sarah opens spreadsheets, checks bank statements, and tries to estimate what will happen over the next few months. Hours later, she's still guessing.",
+    punchline: "This is the reality for thousands of SMEs. They don't fail because they lack opportunities—they fail because they can't see the financial impact of today's decisions before making them. That's exactly the problem our project aims to solve.",
+  },
   s3: {
-    kicker: "01 · Introduction",
+    kicker: "04 · Introduction",
     titlePre: "Meet",
     titleAccent: "FinSight",
     tagline: "The Autonomous AI CFO for the Modern Enterprise",
@@ -51,7 +61,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s4: {
-    kicker: "02 · Problem Statement",
+    kicker: "05 · Problem Statement",
     titlePre: "The",
     titleAccent: "SME Crisis",
     statValue: "82%",
@@ -63,7 +73,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s5: {
-    kicker: "03 · Project Objectives",
+    kicker: "06 · Project Objectives",
     titlePre: "Our",
     titleAccent: "Mission",
     missionStatement: "To build a proactive financial nervous system that transforms raw accounting data into actionable foresight.",
@@ -74,7 +84,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s17: {
-    kicker: "07 · Target Customers",
+    kicker: "10 · Target Customers",
     titlePre: "Who We",
     titleAccent: "Serve",
     subtitle: "FinSight is built specifically for organizations that need CFO-level financial intelligence without hiring a full-time CFO.",
@@ -103,7 +113,7 @@ export const defaultContent: ContentMap = {
   },
 
   s7: {
-    kicker: "08 · Core Dashboard",
+    kicker: "11 · Core Dashboard",
     titlePre: "Intelligent",
     titleAccent: "Command Center",
     intro: "A centralized, real-time overview of your company's financial heartbeat.",
@@ -126,7 +136,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s9: {
-    kicker: "13 · AI Assistant",
+    kicker: "20 · AI Assistant",
     titlePre: "Chat with your",
     titleAccent: "finances",
     intro: "Natural language interface — ask anything, get instant insight from your data.",
@@ -147,7 +157,7 @@ export const defaultContent: ContentMap = {
     impacts: ["Baseline: Cash Flow", "Simulated: Cash Flow", "Runway: Extension", "Threshold: Monitoring"],
   },
   s11: {
-    kicker: "15 · Smart Notifications",
+    kicker: "13 · Smart Notifications",
     titlePre: "Smart Financial",
     titleAccent: "Alerts",
     titleSuffix: "",
@@ -156,7 +166,7 @@ export const defaultContent: ContentMap = {
     flow: ["Forecast Anomaly", "LangFlow Agent Analysis", "Real-time SignalR Alert", "Strategic Recommendation"],
   },
   s12: {
-    kicker: "18 · Technology Stack",
+    kicker: "21 · Technology Stack",
     titlePre: "System Architecture &",
     titleAccent: "Tech Stack",
     groups: [
@@ -166,7 +176,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s13: {
-    kicker: "19 · Future Roadmap",
+    kicker: "22 · Future Roadmap",
     titlePre: "Post-V1",
     titleAccent: "Enhancements",
     phases: [
@@ -179,7 +189,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s14: {
-    kicker: "20 · Conclusion",
+    kicker: "23 · Conclusion",
     titlePre: "A production-ready",
     titleAccent: "AI Finance Platform",
     wins: [
@@ -192,7 +202,7 @@ export const defaultContent: ContentMap = {
     ],
   },
   s15: {
-    kicker: "21 · Live Demonstration",
+    kicker: "24 · Live Demonstration",
     titlePre: "Live",
     titleAccent: "Demonstration",
     intro: "Experience FinSight in action.",
@@ -204,7 +214,7 @@ export const defaultContent: ContentMap = {
     demoLink: "https://finsight-28330.westeurope.cloudapp.azure.com",
   },
   s26: {
-    kicker: "22 · The Team",
+    kicker: "25 · The Team",
     titlePre: "Meet the",
     titleAccent: "Minds",
     intro: "The engineers and visionaries behind FinSight.",
@@ -221,7 +231,7 @@ export const defaultContent: ContentMap = {
     ]
   },
   s18: {
-    kicker: "09 · Financial Records",
+    kicker: "15 · Financial Records",
     titlePre: "Financial",
     titleAccent: "Records",
     intro: "A comprehensive view of your company's financial activities.",
@@ -233,7 +243,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Track bill status", "Manage invoices", "Automatically convert paid bills into transactions"],
   },
   s19: {
-    kicker: "10 · CSV Data Import",
+    kicker: "16 · CSV Data Import",
     titlePre: "CSV Data",
     titleAccent: "Import",
     intro: "Seamlessly bring your existing data into the platform.",
@@ -245,7 +255,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Enables importing invoice and bill data from CSV files for easier tracking and forecasting."],
   },
   s20: {
-    kicker: "11 · Workspaces",
+    kicker: "17 · Workspaces",
     titlePre: "Collaborative",
     titleAccent: "Workspaces",
     intro: "Role-based access to ensure everyone has the right tools.",
@@ -257,7 +267,7 @@ export const defaultContent: ContentMap = {
     c2List: ["Dashboard", "Transactions", "Bills", "CSV Import", "AI Assistant"],
   },
   s21: {
-    kicker: "16 · Admin Dashboard",
+    kicker: "18 · Admin Dashboard",
     titlePre: "Admin",
     titleAccent: "Dashboard",
     intro: "The operational control center of FinSight, designed exclusively for platform administrators to manage the entire SaaS ecosystem.",
@@ -275,7 +285,7 @@ export const defaultContent: ContentMap = {
     f5Desc: "Monitor background AI processes and forecasting jobs.",
   },
   s22: {
-    kicker: "17 · Customer Support",
+    kicker: "19 · Customer Support",
     titlePre: "Customer",
     titleAccent: "Support",
     intro: "Integrated Customer Support system enabling seamless communication between users and platform administrators without leaving the application.",
@@ -289,21 +299,21 @@ export const defaultContent: ContentMap = {
     contactEmail: "finsightwebsite@gmail.com",
   },
   s23: {
-    kicker: "04 · Business Model",
+    kicker: "07 · Business Model",
     titlePre: "How FinSight",
     titleAccent: "Creates Value",
-    partners: ["OpenAI / Anthropic", "Nixtla (TimeGPT)", "Cloud Providers (Azure/AWS)"],
-    activities: ["Platform Development", "AI Model Fine-Tuning", "Security & Compliance"],
-    valueProps: ["Automated Financial Forecasting", "Real-Time AI CFO Alerts", "Actionable Scenario Simulation"],
-    relationships: ["Self-Serve SaaS", "Automated Support", "Community & Docs"],
-    segments: ["SME Owners", "Accountants", "Fractional CFOs"],
-    resources: ["Proprietary Algorithms", "Financial Data Pipelines", "Cloud Infrastructure"],
-    channels: ["Direct Sales", "Partnerships (Accounting Firms)", "Digital Marketing"],
-    cost: ["Cloud Infrastructure & API Costs", "R&D and Engineering", "Marketing & Customer Support"],
-    revenue: ["Tiered SaaS Subscriptions", "White-Label Licensing (B2B)", "Usage-Based AI API Fees"],
+    partners: ["Anthropic (Claude LLMs)", "Groq (High-Speed LPU Inference)", "Nixtla (TimeGPT Models)", "LangFlow (Agent Orchestration)", "Cloud Providers (Azure/AWS)"],
+    activities: ["Scenario Simulation Orchestration", "Financial Data Ingestion & Sync", "B2G / B2B Solution Customization"],
+    valueProps: ["Replace spreadsheet analysis with AI", "Forecast grant & sponsorship ROI", "Compare startup equity dilution securely", "CFO-as-a-Service"],
+    relationships: ["Enterprise & B2G Support", "Self-Serve Simulation Dashboard", "Strategic Advisory"],
+    segments: ["Government Hubs (ITI, NTI)", "Non-profits (Misr El Kheir)", "Startup Incubators (Creativa)", "Strategic Investors & NGOs"],
+    resources: ["LLM & Agent Infrastructure", "Time-Series Forecasting Models", "Strategic Investment Datasets"],
+    channels: ["Government Tenders (MCIT, ITIDA)", "Non-profit Network Partnerships", "Direct Sales to Incubators"],
+    cost: ["Token-based API Costs (Groq, Anthropic)", "Nixtla TimeGPT Enterprise Plan", "Cloud Hosting (Azure/AWS)"],
+    revenue: ["Enterprise SaaS Subscriptions", "Usage-Based API Token Tiers", "White-Label Licensing for Gov Hubs"],
   },
   s24: {
-    kicker: "05 · Investment Ecosystem",
+    kicker: "08 · Investment Ecosystem",
     titlePre: "Investment",
     titleAccent: "Ecosystem",
     intro: "FinSight empowers innovation hubs, government entities, and NGOs to evaluate and select the best strategic partners using the Scenario Simulator.",
@@ -313,7 +323,7 @@ export const defaultContent: ContentMap = {
     scenarioDesc: "Compare multiple offers (e.g., AWS vs 500 Global) by analyzing equity dilution, runway impact, and cloud credits, receiving an AI-generated optimal recommendation.",
   },
   s25: {
-    kicker: "06 · Competitive Landscape",
+    kicker: "09 · Competitive Landscape",
     titlePre: "Why FinSight",
     titleAccent: "Wins",
     c1Name: "Xero",
@@ -334,7 +344,7 @@ export const defaultContent: ContentMap = {
 
 /* ---------- Editor schema (drives the form UI) ---------- */
 export const slideOrder: SlideId[] = [
-  "s1", "s2", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s8", "s11", "s10", "s19", "s18", "s20", "s21", "s22", "s9", "s12", "s13", "s14", "s15", "s26", "s16",
+  "s1", "s2", "s27", "s3", "s4", "s5", "s23", "s24", "s25", "s17", "s7", "s18", "s19", "s20", "s8", "s9", "s10", "s11", "s21", "s22", "s12", "s13", "s14", "s15", "s26", "s16",
 ];
 
 export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }> = {
@@ -369,6 +379,18 @@ export const slideMeta: Record<SlideId, { title: string; fields: FieldSchema[] }
       { key: "intro", label: "Intro paragraph", type: "textarea" },
       { key: "pillars", label: "Pillars (4)", type: "list" },
       { key: "benefits", label: "Key benefits", type: "list" },
+    ]
+  },
+  s27: {
+    title: "Hook Anecdote", fields: [
+      { key: "kicker", label: "Kicker", type: "text" },
+      { key: "titlePre", label: "Title", type: "text" },
+      { key: "titleAccent", label: "Title accent", type: "text" },
+      { key: "p1", label: "Paragraph 1", type: "textarea" },
+      { key: "p2", label: "Paragraph 2", type: "textarea" },
+      { key: "p3", label: "Paragraph 3", type: "textarea" },
+      { key: "p4", label: "Paragraph 4", type: "textarea" },
+      { key: "punchline", label: "Punchline", type: "textarea" },
     ]
   },
   s4: {
@@ -665,7 +687,7 @@ for (const id of slideOrder) {
 }
 
 /* ---------- Store (vanilla, localStorage-backed) ---------- */
-const STORAGE_KEY = "finsight:content:v6";
+const STORAGE_KEY = "finsight:content:v10";
 let state: ContentMap = loadInitial();
 const listeners = new Set<() => void>();
 

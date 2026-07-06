@@ -14,7 +14,7 @@ An animated presentation app for the FinSight admin dashboard story. It is built
 Install dependencies:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 Start the development server:
