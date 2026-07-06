@@ -176,7 +176,7 @@ export function S2_Agenda() {
   const themes = ["cyan", "violet", "emerald", "amber", "primary", "rose"];
   
   // Maps the 12 agenda items to their starting slide index in the presentation
-  const targetIndices = [2, 3, 4, 5, 7, 9, 10, 12, 11, 19, 20, 21];
+  const targetIndices = [2, 4, 5, 6, 7, 10, 11, 13, 12, 20, 21, 22];
 
   const handleNavigate = (index: number) => {
     const target = targetIndices[index];
@@ -1517,10 +1517,10 @@ export const SLIDES: { id: SlideId; title: string; C: () => ReactNode }[] = [
   { id: "s27", title: "The Reality", C: S27_Hook },
   { id: "s4", title: "Problem Statement", C: S4_Problem },
   { id: "s5", title: "Objectives", C: S5_Objectives },
-  { id: "s23", title: "Business Model Canvas", C: S23_BMC },
   { id: "s24", title: "Investment Ecosystem", C: S24_Ecosystem },
   { id: "s25", title: "Competitors", C: S25_Competitors },
   { id: "s17", title: "Target Customers", C: S17_TargetCustomers },
+  { id: "s23", title: "Business Model Canvas", C: S23_BMC },
   { id: "s7", title: "Dashboard", C: S7_Dashboard },
   { id: "s8", title: "AI Forecasting", C: S8_Forecast },
   { id: "s11", title: "Notifications", C: S11_Notifications },
